@@ -1,7 +1,9 @@
-import Image from "next/image";
+import RiveLaptopGuy from "@/components/RiveLaptopGuy";
 
 export default function Home() {
   return (
-   <div>Salman</div>
+    <div className="">
+      <RiveLaptopGuy />
+    </div>
   );
 }
