@@ -11,6 +11,7 @@ const palette = {
   lightBlue: "#98D8EF",
   blue: "#23486A",
   maroon: "#9F8383",
+  brown: "#443627",
 };
 
 const theme = { palette };

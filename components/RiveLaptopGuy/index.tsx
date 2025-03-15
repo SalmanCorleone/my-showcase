@@ -6,7 +6,7 @@ import { cubicBezier, stagger } from "motion";
 import { useEffect } from "react";
 
 export default function RiveLaptopGuy() {
-  const { RiveComponent, rive } = useRive({
+  const { RiveComponent } = useRive({
     src: "./rive/laptop_guy.riv",
     stateMachines: "State Machine",
     autoplay: true,
@@ -41,20 +41,22 @@ export default function RiveLaptopGuy() {
       {/* Left section */}
       <div className="flex justify-center items-center flex-1 border border-white border-solid py-6">
         <div>
+          <h2 className="text-xl">Hi there!</h2>
+          <h2 className="text-xl">I make Frontend stuffs</h2>
           <div className="overflow-hidden h-10" ref={textRef1} onMouseEnter={() => onMouseInteraction(textRef1, "enter")} onMouseLeave={() => onMouseInteraction(textRef1, "exit")}>
-            <div className="flex top-div">{getChar("Animation")}</div>
-            <div className="flex bottom-div">{getChar("Animation")}</div>
+            {/* <div className="flex top-div">{getChar("Animation")}</div>
+            <div className="flex bottom-div">{getChar("Animation")}</div> */}
           </div>
-          <div>but with</div>
+          <div>but with cool</div>
           <div className="overflow-hidden h-10" ref={textRef2} onMouseEnter={() => onMouseInteraction(textRef2, "enter")} onMouseLeave={() => onMouseInteraction(textRef2, "exit")}>
-            <div className="flex top-div">{getChar("Interaction")}</div>
-            <div className="flex bottom-div">{getChar("Interaction")}</div>
+            <div className="flex top-div">{getChar("Animations")}</div>
+            <div className="flex bottom-div">{getChar("Animations")}</div>
           </div>
         </div>
       </div>
 
       {/* Right section */}
-      <div className="flex-1 flex justify-end">
+      <div className="flex-1 flex justify-end px-4">
         <div className="w-[80vh] h-[80vh]" onMouseLeave={onMouseLeavingRiveCanvas}>
           <RiveComponent className="w-full h-full cursor-none" />
         </div>
