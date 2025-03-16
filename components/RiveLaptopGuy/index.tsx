@@ -37,10 +37,10 @@ export default function RiveLaptopGuy() {
   };
 
   return (
-    <div className="md:flex">
+    <div className="flex flex-col md:flex-row">
       {/* Left section */}
-      <div className="flex justify-center items-center flex-1 border border-white border-solid py-6">
-        <div>
+      <div className="flex items-center flex-1 py-6 px-6 md:justify-center">
+        <div className="border border-solid">
           <h2 className="text-xl">Hi there!</h2>
           <h2 className="text-xl">I make Frontend stuffs</h2>
           <div className="overflow-hidden h-10" ref={textRef1} onMouseEnter={() => onMouseInteraction(textRef1, "enter")} onMouseLeave={() => onMouseInteraction(textRef1, "exit")}>
@@ -56,8 +56,8 @@ export default function RiveLaptopGuy() {
       </div>
 
       {/* Right section */}
-      <div className="flex-1 flex justify-end px-4">
-        <div className="w-[80vh] h-[80vh]" onMouseLeave={onMouseLeavingRiveCanvas}>
+      <div className="flex-1 flex md:justify-end px-4">
+        <div className="md:w-[80vh] md:h-[80vh] w-[50vh] h-[50vh]" onMouseLeave={onMouseLeavingRiveCanvas}>
           <RiveComponent className="w-full h-full cursor-none" />
         </div>
       </div>
