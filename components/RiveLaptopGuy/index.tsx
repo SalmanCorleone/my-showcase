@@ -37,16 +37,16 @@ export default function RiveLaptopGuy() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="flex flex-col md:flex-row gap-6">
       {/* Left section */}
       <div className="flex items-center flex-1 py-6 px-6 md:justify-center">
-        <div className="border border-solid">
+        <div className="">
           <h2 className="text-xl">Hi there!</h2>
           <h2 className="text-xl">I make Frontend stuffs</h2>
-          <div className="overflow-hidden h-10" ref={textRef1} onMouseEnter={() => onMouseInteraction(textRef1, "enter")} onMouseLeave={() => onMouseInteraction(textRef1, "exit")}>
-            {/* <div className="flex top-div">{getChar("Animation")}</div>
+          {/* <div className="overflow-hidden h-10" ref={textRef1} onMouseEnter={() => onMouseInteraction(textRef1, "enter")} onMouseLeave={() => onMouseInteraction(textRef1, "exit")}> */}
+          {/* <div className="flex top-div">{getChar("Animation")}</div>
             <div className="flex bottom-div">{getChar("Animation")}</div> */}
-          </div>
+          {/* </div> */}
           <div>but with cool</div>
           <div className="overflow-hidden h-10" ref={textRef2} onMouseEnter={() => onMouseInteraction(textRef2, "enter")} onMouseLeave={() => onMouseInteraction(textRef2, "exit")}>
             <div className="flex top-div">{getChar("Animations")}</div>

@@ -4,12 +4,13 @@ import styles from "./header.module.css";
 
 const headerItems = [
   {
-    name: "Articles",
-    href: "/articles",
+    name: "Experience",
+    href: "/experience",
   },
   {
     name: "GitHub",
     href: "https://github.com/SalmanCorleone",
+    openInNewTab: true,
   },
   {
     name: "Contact",
@@ -37,7 +38,7 @@ const Header = () => {
       {/* Right side */}
       <div className="gap-8 hidden md:flex">
         {headerItems.map((item) => (
-          <a key={item.name} href={item.href} target="_blank" rel="noreferrer">
+          <a key={item.name} href={item.href} {...(!!item.openInNewTab && { target: "_blank", rel: "noreferrer" })}>
             <span>{item.name}</span>
           </a>
         ))}
