@@ -58,7 +58,7 @@ export const experienceData: ExperienceItemType[] = [
     ],
   },
   {
-    title: 'CricWhiz (YC W-21)',
+    title: 'CricWhiz',
     location: 'CA, USA (remote)',
     duration: 'Oct 2020 - Mar 2021',
     position: 'Senior Software Engineer',
