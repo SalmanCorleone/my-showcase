@@ -39,6 +39,14 @@ const pulse: Variants = {
       ease: EASE_SMOOTH,
     },
   },
+  goBack: {
+    scale: 1,
+    opacity: 0,
+    transition: {
+      duration: 0.1,
+      // ease: EASE_SMOOTH,
+    },
+  },
 };
 
 const fadeInDown: Variants = {

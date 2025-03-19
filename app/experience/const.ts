@@ -48,9 +48,6 @@ export const experienceData: ExperienceItemType[] = [
         name: 'React',
         icon: techStackIcons.react,
       },
-      // {
-      //   name: "amCharts 4",
-      // },
       {
         name: 'Typescript',
         icon: techStackIcons.typescript,
@@ -96,7 +93,7 @@ export const experienceData: ExperienceItemType[] = [
       },
       {
         name: 'Google Maps SDK',
-        icon: techStackIcons.redux,
+        icon: techStackIcons.googleMaps,
       },
     ],
   },

@@ -56,7 +56,7 @@ const Experience = () => {
               className="absolute w-3 h-3 rounded-2xl"
               style={{ backgroundColor: theme.palette.orange }}
               variants={animationVariants.pulse}
-              animate={idx === selectedIdx ? 'pulse' : undefined}
+              animate={idx === selectedIdx ? 'pulse' : 'goBack'}
             />
             <motion.div
               initial={{ backgroundColor: theme.palette.lightGrey }}
@@ -87,8 +87,9 @@ const Experience = () => {
           )}
         </div>
 
+        {/* Tools */}
         <div className="pt-4">
-          <div className="flex gap-2 items-center">
+          <div className="flex gap-2 items-center pt-4">
             {experienceData[selectedIdx].techStack.map((techStack) => (
               <TechBadge
                 key={experienceData[selectedIdx].title + ' ' + techStack.name}
@@ -100,7 +101,7 @@ const Experience = () => {
 
           <div className="pt-4">
             {experienceData[selectedIdx].description.map((desc) => (
-              <p key={desc} className="py-2">
+              <p key={desc} className="py-2 text-gray-700">
                 {desc}
               </p>
             ))}

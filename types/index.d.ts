@@ -6,7 +6,7 @@ type ExperienceItemType = {
   positionSubTitle?: string;
   techStack: {
     name: string;
-    icon: string;
+    icon: React.ReactNode;
     color?: string;
   }[];
   description: string[];
