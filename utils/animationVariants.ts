@@ -1,5 +1,8 @@
 import { cubicBezier } from 'motion';
+
 import { Variants } from 'motion/react';
+
+export const EASE_SMOOTH = cubicBezier(0.76, 0, 0.24, 1);
 
 const textVariants: Variants = {
   initial: {
@@ -10,7 +13,7 @@ const textVariants: Variants = {
     transition: {
       duration: 0.3,
       delay: 0.02 * idx,
-      ease: cubicBezier(0.76, 0, 0.24, 1),
+      ease: EASE_SMOOTH,
     },
   }),
   exit: (idx: number) => ({
@@ -18,7 +21,7 @@ const textVariants: Variants = {
     transition: {
       duration: 0.3,
       delay: 0.02 * idx,
-      ease: cubicBezier(0.76, 0, 0.24, 1),
+      ease: EASE_SMOOTH,
     },
   }),
 };
@@ -33,7 +36,7 @@ const pulse: Variants = {
     opacity: [1, 0],
     transition: {
       duration: 0.5,
-      ease: cubicBezier(0.76, 0, 0.24, 1),
+      ease: EASE_SMOOTH,
     },
   },
 };
@@ -44,11 +47,11 @@ const fadeInDown: Variants = {
     y: 10,
   },
   in: {
-    opacity: 1,
-    y: 0,
+    opacity: [0, 1],
+    y: [10, 0],
     transition: {
       duration: 0.5,
-      ease: cubicBezier(0.76, 0, 0.24, 1),
+      ease: EASE_SMOOTH,
     },
   },
   out: {
@@ -56,7 +59,7 @@ const fadeInDown: Variants = {
     y: -10,
     transition: {
       duration: 0.5,
-      ease: cubicBezier(0.76, 0, 0.24, 1),
+      ease: EASE_SMOOTH,
     },
   },
 };

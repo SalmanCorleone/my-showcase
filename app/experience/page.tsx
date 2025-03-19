@@ -1,31 +1,46 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { experienceData } from './const';
-import { motion } from 'motion/react';
+import { motion, useAnimate } from 'motion/react';
 import theme from '@/utils/theme';
 import TechBadge from '@/components/TechBadge';
 import animationVariants from '@/utils/animationVariants';
+import { cubicBezier } from 'motion';
+import { RiArrowRightUpLine } from 'react-icons/ri';
 
 const Experience = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
+  const [descriptionContainerRef, animateDescriptionContainer] = useAnimate();
+
+  useEffect(() => {
+    animateDescriptionContainer(
+      descriptionContainerRef.current,
+      {
+        opacity: [0, 1],
+        y: [5, 0],
+      },
+      {
+        duration: 0.3,
+        ease: cubicBezier(0.76, 0, 0.24, 1),
+      },
+    );
+  }, [animateDescriptionContainer, descriptionContainerRef, selectedIdx]);
 
   return (
     <div className="flex mx-6 md:mx-10 bg-amber-50">
       {/* Left side */}
       <div className="flex flex-col w-[30vw]">
         {experienceData.map((item, idx) => (
-          <button
+          <motion.button
+            whileHover={{ opacity: 1 }}
+            animate={{ opacity: selectedIdx === idx ? 1 : 0.3 }}
             key={idx}
             className="flex flex-col justify-center px-4 cursor-pointer h-24"
             onClick={() => setSelectedIdx(idx)}
           >
-            <h2 className="text-xl text-right" style={{ opacity: idx === selectedIdx ? 1 : 0.3 }}>
-              {item.title}
-            </h2>
-            <p className="text-sm text-right" style={{ opacity: idx === selectedIdx ? 1 : 0.3 }}>
-              {item.location}
-            </p>
-          </button>
+            <h2 className="text-xl text-right">{item.title}</h2>
+            <p className="text-sm text-right">{item.location}</p>
+          </motion.button>
         ))}
       </div>
 
@@ -41,7 +56,6 @@ const Experience = () => {
               className="absolute w-3 h-3 rounded-2xl"
               style={{ backgroundColor: theme.palette.orange }}
               variants={animationVariants.pulse}
-              // initial="initial"
               animate={idx === selectedIdx ? 'pulse' : undefined}
             />
             <motion.div
@@ -56,14 +70,22 @@ const Experience = () => {
       </div>
 
       {/* Right side */}
-      <motion.div
-        className="flex flex-1 flex-col p-4 bg-amber-50"
-        variants={animationVariants.fadeInDown}
-        initial="initial"
-        animate="in"
-      >
-        <h2 className="text-xl">{experienceData[selectedIdx].position}</h2>
-        <p>{experienceData[selectedIdx].duration}</p>
+      <motion.div ref={descriptionContainerRef} className="flex flex-1 flex-col px-4 py-5 bg-amber-50 opacity-0">
+        <div className="flex">
+          <div>
+            <h2 className="text-xl">{experienceData[selectedIdx].position}</h2>
+            <p className="text-sm">{experienceData[selectedIdx].duration}</p>
+          </div>
+          {!!experienceData[selectedIdx].url && (
+            <div className="flex-1 pl-2 pt-1 flex justify-start">
+              <a href={experienceData[selectedIdx].url} target="_blank" rel="noreferrer">
+                <motion.div initial={{ x: 0, y: 0 }} whileHover={{ x: 2, y: -2 }}>
+                  <RiArrowRightUpLine className="text-xl text-blue-400" />
+                </motion.div>
+              </a>
+            </div>
+          )}
+        </div>
 
         <div className="pt-4">
           <div className="flex gap-2 items-center">

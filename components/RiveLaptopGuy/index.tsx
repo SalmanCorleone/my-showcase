@@ -1,9 +1,9 @@
 'use client';
 import { useRive } from '@rive-app/react-canvas-lite';
 import { AnimationScope, motion, useAnimate } from 'framer-motion';
-import { cubicBezier, stagger } from 'motion';
+import { stagger } from 'motion';
 import { useEffect } from 'react';
-import animationVariants from '@/utils/animationVariants';
+import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
 
 export default function RiveLaptopGuy() {
   const { RiveComponent } = useRive({
@@ -38,17 +38,13 @@ export default function RiveLaptopGuy() {
     animFunc(
       'div .top-div span',
       { y: type === 'enter' ? [-40, 0] : [0, -40] },
-      { duration: 0.3, delay: stagger(0.02), ease: cubicBezier(0.76, 0, 0.24, 1) },
+      { duration: 0.3, delay: stagger(0.02), ease: EASE_SMOOTH },
     );
     animFunc(
       'div .bottom-div span',
       { y: type === 'enter' ? [-40, 0] : [0, -40] },
-      { duration: 0.3, delay: stagger(0.02), ease: cubicBezier(0.76, 0, 0.24, 1) },
+      { duration: 0.3, delay: stagger(0.02), ease: EASE_SMOOTH },
     );
-  };
-
-  const onMouseLeavingRiveCanvas = () => {
-    // rive?.re;
   };
 
   return (
@@ -58,10 +54,7 @@ export default function RiveLaptopGuy() {
         <div className="">
           <h2 className="text-xl">Hi there!</h2>
           <h2 className="text-xl">I make Frontend stuffs</h2>
-          {/* <div className="overflow-hidden h-10" ref={textRef1} onMouseEnter={() => onMouseInteraction(textRef1, "enter")} onMouseLeave={() => onMouseInteraction(textRef1, "exit")}> */}
-          {/* <div className="flex top-div">{getChar("Animation")}</div>
-            <div className="flex bottom-div">{getChar("Animation")}</div> */}
-          {/* </div> */}
+
           <div>but with cool</div>
           <div
             className="overflow-hidden h-10"
@@ -77,7 +70,7 @@ export default function RiveLaptopGuy() {
 
       {/* Right section */}
       <div className="flex-1 flex md:justify-end px-4">
-        <div className="md:w-[80vh] md:h-[80vh] w-[50vh] h-[50vh]" onMouseLeave={onMouseLeavingRiveCanvas}>
+        <div className="md:w-[80vh] md:h-[80vh] w-[50vh] h-[50vh]">
           <RiveComponent className="w-full h-full cursor-none" />
         </div>
       </div>

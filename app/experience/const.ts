@@ -72,10 +72,15 @@ export const experienceData: ExperienceItemType[] = [
         name: 'React Native',
         icon: techStackIcons.react,
       },
+      {
+        name: 'Typescript',
+        icon: techStackIcons.typescript,
+      },
     ],
   },
   {
     title: 'HelloTask Platform Ltd.',
+    url: 'https://hellotask.app',
     location: 'Dhaka, Bangladesh',
     duration: 'Feb 2020 - Sep 2020',
     position: 'Senior Software Engineer',
@@ -90,7 +95,7 @@ export const experienceData: ExperienceItemType[] = [
         icon: techStackIcons.react,
       },
       {
-        name: 'Redux',
+        name: 'Google Maps SDK',
         icon: techStackIcons.redux,
       },
     ],
@@ -113,6 +118,10 @@ export const experienceData: ExperienceItemType[] = [
       },
       {
         name: 'React Native',
+        icon: techStackIcons.react,
+      },
+      {
+        name: 'React',
         icon: techStackIcons.react,
       },
     ],
