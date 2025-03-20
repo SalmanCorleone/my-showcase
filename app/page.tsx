@@ -1,4 +1,4 @@
-import RiveLaptopGuy from "@/components/RiveLaptopGuy";
+import RiveLaptopGuy from '@/components/RiveLaptopGuy';
 
 export default function Home() {
   return (

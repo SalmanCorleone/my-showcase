@@ -69,8 +69,8 @@ export default function RiveLaptopGuy() {
       </div>
 
       {/* Right section */}
-      <div className="flex-1 flex md:justify-end px-4">
-        <div className="md:w-[80vh] md:h-[80vh] w-[50vh] h-[50vh]">
+      <div className="flex-1 flex justify-center md:justify-end px-4">
+        <div className="md:w-[80vh] md:h-[80vh] lg:w-[70vh] lg:h-[70vh] w-[40vh] h-[40vh]">
           <RiveComponent className="w-full h-full cursor-none" />
         </div>
       </div>
