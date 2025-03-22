@@ -50,7 +50,7 @@ const Header = () => {
       <div className="flex items-center justify-between h-20 px-4 md:px-16">
         {/* Left side */}
         <Link href={'/'}>
-          <h1 className="text-4xl font-bold hidden md:block">Samil Salman</h1>
+          <h1 className="md:text-4xl font-bold text-base">Samil Salman</h1>
         </Link>
 
         <button
@@ -73,7 +73,9 @@ const Header = () => {
 
       {/* Mobile Nav */}
       <motion.div
-        className="absolute h-[calc(100vh-80px)] origin-top w-full z-30 block md:hidden"
+        className={`absolute h-[calc(100vh-80px)] origin-top w-full z-30 block md:hidden ${
+          isMenuActive ? '' : 'pointer-events-none'
+        }`}
         initial={{ opacity: 0, background: 'transparent' }}
         animate={{ opacity: isMenuActive ? 1 : 0, background: isMenuActive ? theme.palette.light : 'transparent' }}
         transition={{ duration: 0.3, ease: EASE_SMOOTH }}
