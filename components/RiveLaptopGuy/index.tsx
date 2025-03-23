@@ -53,7 +53,7 @@ export default function RiveLaptopGuy() {
       <div className="flex items-center flex-1 py-6 px-6 md:justify-center">
         <div className="flex flex-col gap-2 md:gap-4">
           <h2 className="text-xl">Hey there!</h2>
-          <h1 className="text-4xl">I&apos;m Salman 😇</h1>
+          <h1 className="text-4xl">I&apos;m Salman👋</h1>
           <h2 className="text-xl">A software engineer</h2>
           <h2 className="text-xl">with a passion for</h2>
 

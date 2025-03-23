@@ -4,7 +4,7 @@ import styles from './header.module.css';
 import Link from 'next/link';
 import { RiBearSmileLine, RiBriefcase4Line, RiGithubFill, RiLinkedinBoxLine, RiRocket2Line } from 'react-icons/ri';
 import { motion } from 'framer-motion';
-import theme from '@/utils/theme';
+import theme, { transparencyHexMap } from '@/utils/theme';
 import { EASE_SMOOTH } from '@/utils/animationVariants';
 
 const headerItems = [
@@ -47,22 +47,25 @@ const Header = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between h-20 px-4 md:px-16">
+      <div
+        className={`flex items-center justify-between h-20 px-4 lg:px-16 fixed top-0 left-0 right-0 backdrop-blur-md z-50`}
+        style={{ background: `${theme.palette.light}${transparencyHexMap[60]}` }}
+      >
         {/* Left side */}
         <Link href={'/'}>
-          <h1 className="md:text-4xl font-bold text-base">Samil Salman</h1>
+          <h1 className="lg:text-4xl font-bold text-base">Samil Salman</h1>
         </Link>
 
         <button
           onClick={toggleBurgerMenu}
-          className={`${styles.burgerMenuButton} ${!!isMenuActive && styles.active} flex md:hidden`}
+          className={`${styles.burgerMenuButton} ${!!isMenuActive && styles.active} flex lg:hidden`}
         />
 
         {/* Right side */}
-        <div className="gap-8 hidden md:flex">
+        <div className="gap-8 hidden lg:flex">
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} {...(!!item.openInNewTab && { target: '_blank', rel: 'noreferrer' })}>
-              <div className="flex items-center gap-4 md:gap-2">
+              <div className="flex items-center gap-4 lg:gap-2">
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
               </div>
@@ -73,7 +76,7 @@ const Header = () => {
 
       {/* Mobile Nav */}
       <motion.div
-        className={`absolute h-[calc(100vh-80px)] origin-top w-full z-30 block md:hidden ${
+        className={`absolute h-[calc(100vh-80px)] origin-top w-full z-30 block lg:hidden ${
           isMenuActive ? '' : 'pointer-events-none'
         }`}
         initial={{ opacity: 0, background: 'transparent' }}
@@ -103,7 +106,7 @@ const Header = () => {
         >
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} {...(!!item.openInNewTab && { target: '_blank', rel: 'noreferrer' })}>
-              <div className="flex items-center gap-4 md:gap-2">
+              <div className="flex items-center gap-4 lg:gap-2">
                 <span className="text-xl">{item.icon}</span>
                 <span className="text-xl">{item.name}</span>
               </div>
