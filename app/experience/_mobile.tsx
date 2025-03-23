@@ -64,25 +64,20 @@ const Mobile = () => {
             {/* content */}
             <div className="flex-1">
               <motion.div className="flex flex-col justify-center cursor-pointer">
-                <h2 className="text-xl text-left md:text-right">{item.title}</h2>
-                <p className="text-sm text-left md:text-right">{item.location}</p>
+                <h2 className="text-xl text-left">{item.title}</h2>
+                <p className="text-sm text-left">{item.location}</p>
               </motion.div>
 
-              <motion.div
-                // ref={descriptionContainerRef}
-                className="flex flex-col py-5 bg-amber-50"
-              >
+              <div className="flex flex-col py-5 bg-amber-50">
                 <div className="flex">
                   <div>
-                    <h2 className="md:text-xl">{item.position}</h2>
+                    <p>{item.position}</p>
                     <p className="text-sm">{item.duration}</p>
                   </div>
                   {!!item.url && (
                     <div className="flex-1 pl-2 pt-1 flex justify-start">
                       <a href={item.url} target="_blank" rel="noreferrer">
-                        <motion.div initial={{ x: 0, y: 0 }} whileHover={{ x: 2, y: -2 }}>
-                          <RiArrowRightUpLine className="text-xl text-blue-400" />
-                        </motion.div>
+                        <RiArrowRightUpLine className="text-xl text-blue-400" />
                       </a>
                     </div>
                   )}
@@ -104,7 +99,7 @@ const Mobile = () => {
                     ))}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         ))}

@@ -4,6 +4,7 @@ import { AnimationScope, motion, useAnimate } from 'framer-motion';
 import { stagger } from 'motion';
 import { useEffect } from 'react';
 import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
+import theme from '@/utils/theme';
 
 export default function RiveLaptopGuy() {
   const { RiveComponent } = useRive({
@@ -25,7 +26,6 @@ export default function RiveLaptopGuy() {
         variants={animationVariants.textVariants}
         initial={'initial'}
         animate={'enter'}
-        className="text-4xl"
       >
         {char}
       </motion.span>
@@ -48,28 +48,30 @@ export default function RiveLaptopGuy() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6">
+    <div className="flex flex-col md:flex-row gap-6 h-[80vh]">
       {/* Left section */}
       <div className="flex items-center flex-1 py-6 px-6 md:justify-center">
-        <div className="">
-          <h2 className="text-xl">Hi there!</h2>
-          <h2 className="text-xl">I make Frontend stuffs</h2>
+        <div className="flex flex-col gap-2 md:gap-4">
+          <h2 className="text-xl">Hey there!</h2>
+          <h1 className="text-4xl">I&apos;m Salman 😇</h1>
+          <h2 className="text-xl">A software engineer</h2>
+          <h2 className="text-xl">with a passion for</h2>
 
-          <div>but with cool</div>
           <div
-            className="overflow-hidden h-10"
+            className="overflow-hidden h-10 cursor-pointer text-4xl"
+            style={{ color: theme.palette.orange }}
             ref={textRef2}
             onMouseEnter={() => onMouseInteraction(textRef2, 'enter')}
             onMouseLeave={() => onMouseInteraction(textRef2, 'exit')}
           >
-            <div className="flex top-div">{getChar('Animations')}</div>
+            <div className="flex top-div">{getChar('Interactive')}</div>
             <div className="flex bottom-div">{getChar('Animations')}</div>
           </div>
         </div>
       </div>
 
       {/* Right section */}
-      <div className="flex-1 flex justify-center md:justify-end px-4">
+      <div className="flex-1 flex justify-center md:justify-end px-4 md:px-6 items-center">
         <div className="md:w-[80vh] md:h-[80vh] lg:w-[70vh] lg:h-[70vh] w-[40vh] h-[40vh]">
           <RiveComponent className="w-full h-full cursor-none" />
         </div>
