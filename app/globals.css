@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --foreground: #171717;
@@ -20,4 +20,12 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+.gridBox {
+  @apply border border-gray-300 rounded flex flex-col justify-center items-center p-4 gap-4;
+}
+
+.gridBox:hover {
+  @apply border-gray-500 transition-colors duration-300 ease-in-out;
 }

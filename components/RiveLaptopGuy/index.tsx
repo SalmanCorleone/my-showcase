@@ -64,7 +64,7 @@ export default function RiveLaptopGuy() {
             onMouseEnter={() => onMouseInteraction(textRef2, 'enter')}
             onMouseLeave={() => onMouseInteraction(textRef2, 'exit')}
           >
-            <div className="flex top-div">{getChar('Interactive')}</div>
+            <div className="flex top-div">{getChar('Animations')}</div>
             <div className="flex bottom-div">{getChar('Animations')}</div>
           </div>
         </div>

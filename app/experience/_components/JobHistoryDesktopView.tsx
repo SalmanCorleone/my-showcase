@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import { experienceData } from './const';
+import { experienceData } from '../const';
 import { motion, useAnimate } from 'motion/react';
 import theme from '@/utils/theme';
 import TechBadge from '@/components/TechBadge';
@@ -8,7 +8,7 @@ import animationVariants from '@/utils/animationVariants';
 import { cubicBezier } from 'motion';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 
-const Desktop = () => {
+const JobHistoryDesktopView = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [descriptionContainerRef, animateDescriptionContainer] = useAnimate();
 
@@ -27,7 +27,7 @@ const Desktop = () => {
   }, [animateDescriptionContainer, descriptionContainerRef, selectedIdx]);
 
   return (
-    <div className="hidden md:flex md:flex-row mx-6 md:mx-10 bg-amber-50">
+    <div className="hidden md:flex md:flex-row py-6 rounded">
       {/* Left side */}
       <div className="flex flex-col w-[30vw]">
         {experienceData.map((item, idx) => (
@@ -70,10 +70,7 @@ const Desktop = () => {
       </div>
 
       {/* Right side */}
-      <motion.div
-        ref={descriptionContainerRef}
-        className="hidden md:flex flex-1 flex-col px-4 py-5 bg-amber-50 opacity-0"
-      >
+      <motion.div ref={descriptionContainerRef} className="hidden md:flex flex-1 flex-col px-4 py-5 opacity-0">
         <div className="flex">
           <div>
             <h2 className="text-xl">{experienceData[selectedIdx].position}</h2>
@@ -115,4 +112,4 @@ const Desktop = () => {
   );
 };
 
-export default Desktop;
+export default JobHistoryDesktopView;

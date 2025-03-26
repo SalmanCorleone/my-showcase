@@ -48,7 +48,7 @@ const Header = () => {
   return (
     <div>
       <div
-        className={`flex items-center justify-between h-20 px-4 lg:px-16 fixed top-0 left-0 right-0 backdrop-blur-md z-50`}
+        className={`flex items-center justify-between h-20 px-4 lg:px-16 fixed top-0 left-0 right-0 backdrop-blur-md z-50 border-b border-[var(--color-background)]`}
         style={{ background: `${theme.palette.light}${transparencyHexMap[60]}` }}
       >
         {/* Left side */}

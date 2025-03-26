@@ -1,7 +1,7 @@
+import Header from '@/components/Header';
 import type { Metadata } from 'next';
 import { Source_Code_Pro } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/Header';
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],

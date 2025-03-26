@@ -39,7 +39,7 @@ const BounceButton = ({ bg, children, ...props }: IBounceButtonProps) => {
         <span>{children}</span>
       </motion.div>
       <div
-        className="-z-10 w-full h-full absolute top-2 rounded-xl"
+        className="-z-10 w-full h-full absolute top-1 rounded-xl"
         style={{ background: bg ?? theme.palette.lightBlue }}
       ></div>
     </button>

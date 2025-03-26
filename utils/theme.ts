@@ -14,6 +14,12 @@ const palette = {
   brown: '#443627',
 } as const;
 
+const root = window.document.documentElement;
+
+Object.entries(palette).forEach(([key, value]) => {
+  root.style.setProperty(`--color-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, value);
+});
+
 export type PaletteType = typeof palette;
 
 export const transparencyHexMap = {

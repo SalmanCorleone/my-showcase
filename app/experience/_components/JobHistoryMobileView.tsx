@@ -1,13 +1,13 @@
 'use client';
 import theme from '@/utils/theme';
-import { experienceData } from './const';
+import { experienceData } from '../const';
 import { motion } from 'motion/react';
 import animationVariants from '@/utils/animationVariants';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowRightUpLine } from 'react-icons/ri';
 import TechBadge from '@/components/TechBadge';
 
-const Mobile = () => {
+const JobHistoryMobileView = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);
   const dotsRefArray = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -108,4 +108,4 @@ const Mobile = () => {
   );
 };
 
-export default Mobile;
+export default JobHistoryMobileView;
