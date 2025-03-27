@@ -6,6 +6,7 @@ import { RiBearSmileLine, RiBriefcase4Line, RiGithubFill, RiLinkedinBoxLine, RiR
 import { motion } from 'framer-motion';
 import theme, { transparencyHexMap } from '@/utils/theme';
 import { EASE_SMOOTH } from '@/utils/animationVariants';
+import { useTransitionRouter } from 'next-view-transitions';
 
 const headerItems = [
   {
@@ -40,9 +41,50 @@ const headerItems = [
 
 const Header = () => {
   const [isMenuActive, setMenuActive] = useState(false);
+  const router = useTransitionRouter();
 
   const toggleBurgerMenu = () => {
     setMenuActive((val) => !val);
+  };
+
+  const slideAnim = () => {
+    document.documentElement.animate(
+      [
+        {
+          transform: 'translateY(0px)',
+          opacity: 1,
+        },
+        {
+          transform: 'translateY(-100px)',
+          opacity: 0.5,
+        },
+      ],
+      {
+        duration: 500,
+        easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+        fill: 'forwards',
+        pseudoElement: '::view-transition-old(root)',
+      },
+    );
+
+    document.documentElement.animate(
+      [
+        {
+          transform: 'translateY(100px)',
+          opacity: 0,
+        },
+        {
+          transform: 'translateY(0px)',
+          opacity: 1,
+        },
+      ],
+      {
+        duration: 500,
+        easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+        fill: 'forwards',
+        pseudoElement: '::view-transition-new(root)',
+      },
+    );
   };
 
   return (
@@ -52,7 +94,16 @@ const Header = () => {
         style={{ background: `${theme.palette.light}${transparencyHexMap[60]}` }}
       >
         {/* Left side */}
-        <Link href={'/'}>
+        <Link
+          href={'/'}
+          onClick={(e) => {
+            e.preventDefault();
+
+            router.push('/', {
+              onTransitionReady: slideAnim,
+            });
+          }}
+        >
           <h1 className="lg:text-4xl font-bold text-base">Samil Salman</h1>
         </Link>
 
@@ -64,7 +115,21 @@ const Header = () => {
         {/* Right side */}
         <div className="gap-8 hidden lg:flex">
           {headerItems.map((item) => (
-            <a key={item.name} href={item.href} {...(!!item.openInNewTab && { target: '_blank', rel: 'noreferrer' })}>
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                if (item.openInNewTab) {
+                  window.open(item.href, '_blank');
+                  return;
+                }
+
+                router.push(item.href, {
+                  onTransitionReady: slideAnim,
+                });
+              }}
+            >
               <div className="flex items-center gap-4 lg:gap-2">
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
