@@ -2,7 +2,6 @@
 import { useRive } from '@rive-app/react-canvas-lite';
 import { AnimationScope, motion, useAnimate } from 'framer-motion';
 import { stagger } from 'motion';
-import { useEffect } from 'react';
 import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme from '@/utils/theme';
 
@@ -12,8 +11,6 @@ export default function RiveLaptopGuy() {
     stateMachines: 'State Machine',
     autoplay: true,
   });
-
-  useEffect(() => {}, []);
 
   const [textRef1, animate1] = useAnimate();
   const [textRef2, animate2] = useAnimate();
@@ -50,23 +47,18 @@ export default function RiveLaptopGuy() {
   return (
     <div className="flex flex-col md:flex-row gap-6 h-[80vh]">
       {/* Left section */}
-      <div className="flex items-center flex-1 py-6 px-6 md:justify-center">
-        <div className="flex flex-col gap-2 md:gap-4">
-          <h2 className="text-xl">Hey there!</h2>
-          <h1 className="text-4xl">I&apos;m Salman👋</h1>
-          <h2 className="text-xl">A software engineer</h2>
-          <h2 className="text-xl">with a passion for</h2>
-
-          <div
-            className="overflow-hidden h-10 cursor-pointer text-4xl"
-            style={{ color: theme.palette.orange }}
-            ref={textRef2}
-            onMouseEnter={() => onMouseInteraction(textRef2, 'enter')}
-            onMouseLeave={() => onMouseInteraction(textRef2, 'exit')}
-          >
-            <div className="flex top-div">{getChar('Animations')}</div>
-            <div className="flex bottom-div">{getChar('Animations')}</div>
-          </div>
+      <div className="flex flex-col flex-1 py-6 px-6 justify-center items-center lg:items-end gap-4 lg:gap-6 text-center">
+        <h1 className="text-4xl lg:text-7xl font-bold">I&apos;m Salman</h1>
+        <h2 className="text-xl">A software engineer with a passion for</h2>
+        <div
+          className="overflow-hidden h-10 cursor-pointer text-4xl"
+          style={{ color: theme.palette.orange }}
+          ref={textRef2}
+          onMouseEnter={() => onMouseInteraction(textRef2, 'enter')}
+          onMouseLeave={() => onMouseInteraction(textRef2, 'exit')}
+        >
+          <div className="flex top-div">{getChar('Animations')}</div>
+          <div className="flex bottom-div">{getChar(`Animations`)}</div>
         </div>
       </div>
 

@@ -12,15 +12,7 @@ const textVariants: Variants = {
     y: [0, -40],
     transition: {
       duration: 0.3,
-      delay: 0.02 * idx,
-      ease: EASE_SMOOTH,
-    },
-  }),
-  exit: (idx: number) => ({
-    y: [0, 40],
-    transition: {
-      duration: 0.3,
-      delay: 0.02 * idx,
+      delay: 0.1 * idx,
       ease: EASE_SMOOTH,
     },
   }),

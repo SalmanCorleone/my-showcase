@@ -1,21 +1,13 @@
 'use client';
 import theme from '@/utils/theme';
-import {
-  RiBuilding3Line,
-  RiDownloadLine,
-  RiHammerLine,
-  RiMapPin2Line,
-  RiTimer2Line,
-  RiToolsLine,
-} from 'react-icons/ri';
+import { RiBuilding3Line, RiHammerLine, RiMapPin2Line, RiTimer2Line, RiToolsLine } from 'react-icons/ri';
 import CircleIcon from './_components/CircleIcon';
 
-import BounceButton from '@/components/BounceButton';
+import ReactLenis from 'lenis/react';
 import IconWithText from './_components/IconWithText';
 import JobHistoryDesktopView from './_components/JobHistoryDesktopView';
 import JobHistoryMobileView from './_components/JobHistoryMobileView';
 import { techs, thingsIMake, tools } from './const';
-import ReactLenis from 'lenis/react';
 
 const Experience = () => {
   return (
@@ -104,7 +96,7 @@ const Experience = () => {
           <JobHistoryMobileView />
         </section>
 
-        <section className="px-4 lg:px-12 pt-4 lg:pt-6">
+        {/* <section className="px-4 lg:px-12 pt-4 lg:pt-6">
           <h2 className="text-6xl py-20 text-center">Let&apos;s have a chat!</h2>
           <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-6 py-4">
             <BounceButton bg={theme.palette.lime}>Ping me</BounceButton>
@@ -119,7 +111,7 @@ const Experience = () => {
               </div>
             </BounceButton>
           </div>
-        </section>
+        </section> */}
       </div>
     </ReactLenis>
   );

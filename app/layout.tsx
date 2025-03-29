@@ -23,7 +23,9 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${sourceCodePro.className} antialiased`}>
           <Header />
-          <div className="mt-20">{children}</div>
+          <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
+            {children}
+          </div>
         </body>
       </html>
     </ViewTransitions>

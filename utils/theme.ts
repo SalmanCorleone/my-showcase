@@ -8,17 +8,18 @@ const palette = {
   darkRed: '#3D0301',
   green: '#6A9C89',
   yellow: '#FFB433',
+  lightYellow: '#FDFFD2',
   lightBlue: '#98D8EF',
   blue: '#23486A',
   maroon: '#9F8383',
   brown: '#443627',
 } as const;
 
-const root = window.document.documentElement;
+// const root = window.document.documentElement;
 
-Object.entries(palette).forEach(([key, value]) => {
-  root.style.setProperty(`--color-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, value);
-});
+// Object.entries(palette).forEach(([key, value]) => {
+//   root.style.setProperty(`--color-${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`, value);
+// });
 
 export type PaletteType = typeof palette;
 
