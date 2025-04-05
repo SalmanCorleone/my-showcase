@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { Source_Code_Pro } from 'next/font/google';
 import './globals.css';
 import { ViewTransitions } from 'next-view-transitions';
+import Footer from '@/components/Footer';
+import ReactLenis from 'lenis/react';
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
@@ -21,12 +23,15 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en">
-        <body className={`${sourceCodePro.className} antialiased`}>
-          <Header />
-          <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
-            {children}
-          </div>
-        </body>
+        <ReactLenis root>
+          <body className={`${sourceCodePro.className} antialiased`}>
+            <Header />
+            <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
+              {children}
+            </div>
+            <Footer />
+          </body>
+        </ReactLenis>
       </html>
     </ViewTransitions>
   );

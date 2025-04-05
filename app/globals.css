@@ -46,3 +46,7 @@ body {
 .gridBox:hover {
   @apply border-gray-500 transition-colors duration-300 ease-in-out;
 }
+
+.gridBoxAboutPage {
+  @apply rounded p-4 border-gray-300 border flex flex-col justify-center items-center gap-4 order-12;
+}
