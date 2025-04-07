@@ -5,10 +5,11 @@ import CircleIcon from '@/components/CircleIcon';
 const movieLinkMap: Record<string, string> = {
   imdb: 'https://www.imdb.com/user/ur53688954',
   letterboxd: 'https://letterboxd.com/salmansantino/',
+  medium: 'https://medium.com/@salmansantino',
 };
 
 const musicLinkMap: Record<string, string> = {
-  soundcloud: 'https://soundcloud.com/salmansantino',
+  soundCloud: 'https://soundcloud.com/salmansantino',
 };
 
 const About = () => {
@@ -70,7 +71,7 @@ const About = () => {
 
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <CircleIcon bg={theme.palette.lightGrey} icon={<span>🎭</span>} />
-          <p>Movie buff, here&apos;s my imdb and letterboxd medium</p>
+          <p>Movie buff</p>
           <div className="flex flex-wrap gap-4">
             {Object.keys(movieLinkMap).map((key) => (
               <a key={key} href={movieLinkMap[key]} target="_blank" rel="noreferrer" className="text-blue-900">
