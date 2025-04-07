@@ -155,7 +155,7 @@ const Header = () => {
 
       {/* Mobile Nav */}
       <motion.div
-        className={`pt-20 absolute h-[calc(100vh-80px)] origin-top w-full z-30 block lg:hidden ${
+        className={`pt-20 fixed h-[calc(100vh-80px)] origin-top w-full z-30 block lg:hidden ${
           isMenuActive ? '' : 'pointer-events-none'
         }`}
         initial={{ opacity: 0, background: 'transparent' }}
