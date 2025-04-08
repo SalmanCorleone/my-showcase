@@ -1,10 +1,10 @@
 import GridContents from '@/components/GridContents';
-import RiveLaptopGuy from '@/components/RiveLaptopGuy';
+import HeroSection from '@/components/HeroSection';
 
 export default function Home() {
   return (
     <div className="">
-      <RiveLaptopGuy />
+      <HeroSection />
       <GridContents />
     </div>
   );

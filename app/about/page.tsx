@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import theme from '@/utils/theme';
 import CircleIcon from '@/components/CircleIcon';
+import LinkButton from '@/components/LinkButton';
 
 const movieLinkMap: Record<string, string> = {
   imdb: 'https://www.imdb.com/user/ur53688954',
@@ -9,7 +10,12 @@ const movieLinkMap: Record<string, string> = {
 };
 
 const musicLinkMap: Record<string, string> = {
-  soundCloud: 'https://soundcloud.com/salmansantino',
+  soundcloud: 'https://soundcloud.com/salmansantino',
+};
+
+const productHuntLinkMap: Record<string, string> = {
+  'Launch page': 'https://www.producthunt.com/products/2021-your-year-in-meetings',
+  'Blog about our journey': 'https://medium.com/@syam_33908/our-first-foray-into-product-hunt-31e0b82f55b3',
 };
 
 const About = () => {
@@ -45,27 +51,15 @@ const About = () => {
             We did a fun project called &apos;2021 Your Year In Meetings&apos; which was nominated as the semi-finalist
             at Product Hunt on Productivity category of 2021
           </p>
-          <a
-            className="text-blue-900 border-l border-b border-gray-300 px-2 py-1"
-            href="https://www.producthunt.com/products/2021-your-year-in-meetings"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Link to launch page ↗
-          </a>
+          {Object.keys(productHuntLinkMap).map((key) => (
+            <LinkButton href={productHuntLinkMap[key]} title={key} key={key} />
+          ))}
         </div>
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <CircleIcon bg={theme.palette.lightYellow} icon={<span>🎸</span>} />
           <p>I try and play some music sometimes</p>
           {Object.keys(musicLinkMap).map((key) => (
-            <a key={key} href={musicLinkMap[key]} target="_blank" rel="noreferrer" className="text-blue-900">
-              <div
-                key={key}
-                className="flex items-center justify-center px-1 py-2 gap-2 rounded border-l border-b border-gray-300"
-              >
-                <p className="text-sm text-center">{key} ↗</p>
-              </div>
-            </a>
+            <LinkButton href={musicLinkMap[key]} title={key} key={key} />
           ))}
         </div>
 
@@ -74,14 +68,7 @@ const About = () => {
           <p>Movie buff</p>
           <div className="flex flex-wrap gap-4">
             {Object.keys(movieLinkMap).map((key) => (
-              <a key={key} href={movieLinkMap[key]} target="_blank" rel="noreferrer" className="text-blue-900">
-                <div
-                  key={key}
-                  className="flex items-center justify-center px-1 py-2 gap-2 rounded border-l border-b border-gray-300"
-                >
-                  <p className="text-sm text-center">{key} ↗</p>
-                </div>
-              </a>
+              <LinkButton href={movieLinkMap[key]} title={key} key={key} />
             ))}
           </div>
         </div>

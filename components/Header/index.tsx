@@ -36,11 +36,11 @@ const headerItems: HeaderItem[] = [
   //   icon: <RiLinkedinBoxLine />,
   // },
 
-  {
-    name: 'Contact',
-    href: '/contact',
-    icon: <RiRocket2Line />,
-  },
+  // {
+  //   name: 'Contact',
+  //   href: '/contact',
+  //   icon: <RiRocket2Line />,
+  // },
   {
     name: 'About',
     href: '/about',
@@ -143,7 +143,7 @@ const Header = () => {
         {/* Right side */}
         <div className="gap-8 hidden lg:flex">
           {headerItems.map((item) => (
-            <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
+            <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)} className="hover:text-blue-700">
               <div className="flex items-center gap-4 lg:gap-2">
                 <span>{item.icon}</span>
                 <span>{item.name}</span>

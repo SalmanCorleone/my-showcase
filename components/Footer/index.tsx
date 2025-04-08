@@ -40,6 +40,10 @@ const Footer = () => {
           </a>
         ))}
       </div>
+
+      <div className="">
+        <p className="text-sm">© Samil Salman, Made with ♥️ in 2025</p>
+      </div>
     </footer>
   );
 };

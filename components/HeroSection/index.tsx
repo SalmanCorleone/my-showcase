@@ -4,8 +4,9 @@ import { AnimationScope, motion, useAnimate } from 'framer-motion';
 import { stagger } from 'motion';
 import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme from '@/utils/theme';
+import BounceButton from '../BounceButton';
 
-export default function RiveLaptopGuy() {
+export default function HeroSection() {
   const { RiveComponent } = useRive({
     src: './rive/laptop_guy.riv',
     stateMachines: 'State Machine',
@@ -48,6 +49,7 @@ export default function RiveLaptopGuy() {
     <div className="flex flex-col md:flex-row gap-6 h-[80vh]">
       {/* Left section */}
       <div className="flex flex-col flex-1 py-6 px-6 justify-center items-center lg:items-end gap-4 lg:gap-6 text-center">
+        <p className="text-xl">Hi there! 👋</p>
         <h1 className="text-4xl lg:text-7xl font-bold">I&apos;m Salman</h1>
         <h2 className="text-xl">A software engineer with a passion for</h2>
         <div
@@ -63,9 +65,13 @@ export default function RiveLaptopGuy() {
       </div>
 
       {/* Right section */}
-      <div className="flex-1 flex justify-center md:justify-end px-4 md:px-6 items-center">
+      <div className="border flex-1 flex flex-col justify-center lg:items-end px-4 lg:px-6 items-center gap-4">
         <div className="md:w-[80vh] md:h-[80vh] lg:w-[70vh] lg:h-[70vh] w-[40vh] h-[40vh]">
           <RiveComponent className="w-full h-full cursor-none" />
+        </div>
+        <div className="flex md:w-[80vh] lg:w-[70vh] w-[40vh] justify-center gap-6">
+          <BounceButton>Animation file ↗</BounceButton>
+          <BounceButton>Github ↗</BounceButton>
         </div>
       </div>
     </div>
