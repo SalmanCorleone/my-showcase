@@ -29,20 +29,17 @@ const BounceButton = ({ bg, children, ...props }: IBounceButtonProps) => {
 
   return (
     <button className="cursor-pointer relative" {...props} onClick={onButtonClick}>
+      <div className="w-full h-full absolute top-1 rounded-xl" style={{ background: bg ?? theme.palette.lightBlue }} />
       <motion.div
         ref={buttonRef}
-        className="z-10 bg-white border rounded-xl px-4 py-2"
+        className="bg-white border rounded-xl px-4 py-2 relative"
+        // style={{ zIndex: 2 }}
         initial={{ y: 0 }}
         whileHover={{ y: -2 }}
         transition={{ type: 'spring', duration: 0.2 }}
       >
         <span>{children}</span>
       </motion.div>
-      {/* // todo: fix this button */}
-      <div
-        className="w-full h-full absolute top-1 rounded-xl"
-        style={{ background: bg ?? theme.palette.lightBlue, zIndex: 9 }}
-      ></div>
     </button>
   );
 };

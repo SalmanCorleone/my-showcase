@@ -7,6 +7,7 @@ import JobHistoryDesktopView from './_components/JobHistoryDesktopView';
 import JobHistoryMobileView from './_components/JobHistoryMobileView';
 import { techs, thingsIMake, tools } from './const';
 import CircleIcon from '@/components/CircleIcon';
+import KudosSection from './_components/KudosSection';
 
 const Experience = () => {
   return (
@@ -110,6 +111,11 @@ const Experience = () => {
             </BounceButton>
           </div>
         </section> */}
+
+      <section className="px-4 lg:px-12 pt-4 lg:pt-6">
+        <h2 className="text-6xl py-20 text-center">Found on Slack channels</h2>
+        <KudosSection />
+      </section>
     </div>
   );
 };
