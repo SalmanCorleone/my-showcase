@@ -16,9 +16,6 @@ const imageData: ImageDataType[] = [
     src: '/images/kudos/gerald_2.png', //ola
     w: 1200,
     h: 1000,
-    // style: {
-    //   transform: 'rotate(-10deg)',
-    // },
   },
   {
     src: '/images/kudos/gerald_3.png', //nikos shakil
@@ -30,9 +27,6 @@ const imageData: ImageDataType[] = [
     w: 1200,
     h: 1200,
     gridRow: 'span 2',
-    style: {
-      transform: '',
-    },
   },
   {
     src: '/images/kudos/gerald_4.png', //matias
@@ -53,18 +47,12 @@ const imageData: ImageDataType[] = [
     w: 2400,
     h: 2400,
     gridColumn: 'span 2',
-    style: {
-      transform: 'translateY(-48px)',
-    },
   },
 
   {
     src: '/images/kudos/tackle_1.jpg', // hsn
     w: 400,
     h: 400,
-    style: {
-      // transform: 'rotate(-5deg)',
-    },
   },
 ];
 
