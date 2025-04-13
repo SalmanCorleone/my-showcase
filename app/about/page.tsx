@@ -65,7 +65,7 @@ const About = () => {
 
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <CircleIcon bg={theme.palette.lightGrey} icon={<span>🎭</span>} />
-          <p>Movie buff</p>
+          <p>Movie buff. Current recommendation: All Quiet on the Western Front (2022)</p>
           <div className="flex flex-wrap gap-4">
             {Object.keys(movieLinkMap).map((key) => (
               <LinkButton href={movieLinkMap[key]} title={key} key={key} />
@@ -97,7 +97,7 @@ const About = () => {
 
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <CircleIcon
-            bg={theme.palette.lightYellow}
+            bg={theme.palette.lightGrey}
             icon={<Image src={'/images/duolingo.png'} width={200} height={200} alt="duolingo" />}
           />
           <p>I&apos;m fluent in English and Bangla. Thanks to Duolingo, know a bit of spanish too. </p>

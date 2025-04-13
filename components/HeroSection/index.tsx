@@ -46,7 +46,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 h-[80vh]">
+    <div className="flex flex-col md:flex-row gap-6 min-h-[90vh]">
       {/* Left section */}
       <div className="flex flex-col flex-1 py-6 px-6 justify-center items-center lg:items-end gap-4 lg:gap-6 text-center">
         <p className="text-xl">Hi there! 👋</p>

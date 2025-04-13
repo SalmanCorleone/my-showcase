@@ -48,5 +48,5 @@ body {
 }
 
 .gridBoxAboutPage {
-  @apply rounded p-4 border-gray-300 border flex flex-col justify-center items-center gap-4 order-12;
+  @apply rounded p-4 border-gray-300 border flex flex-col justify-center items-center gap-4 order-12 text-gray-800;
 }
