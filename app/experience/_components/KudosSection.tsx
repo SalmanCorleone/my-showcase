@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import theme from '@/utils/theme';
 
 type ImageDataType = {
   src: string;

@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useTransitionRouter } from 'next-view-transitions';
 import Link from 'next/link';
 import { useState } from 'react';
-import { RiBearSmileLine, RiBriefcase4Line, RiRocket2Line } from 'react-icons/ri';
+import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
 import styles from './header.module.css';
 
 const ANIM_DURATION = 700;
@@ -23,24 +23,6 @@ const headerItems: HeaderItem[] = [
     href: '/experience',
     icon: <RiBriefcase4Line />,
   },
-  // {
-  //   name: 'GitHub',
-  //   href: 'https://github.com/SalmanCorleone',
-  //   openInNewTab: true,
-  //   icon: <RiGithubFill />,
-  // },
-  // {
-  //   name: 'LinkedIn',
-  //   href: 'https://www.linkedin.com/in/samil-salman21',
-  //   openInNewTab: true,
-  //   icon: <RiLinkedinBoxLine />,
-  // },
-
-  // {
-  //   name: 'Contact',
-  //   href: '/contact',
-  //   icon: <RiRocket2Line />,
-  // },
   {
     name: 'About',
     href: '/about',
@@ -57,8 +39,6 @@ const Header = () => {
   };
 
   const slideAnim = () => {
-    // todo: remove after adding lenis on all pages
-    // document.body.style.backgroundColor = 'var(--dark)';
     document.documentElement.animate(
       [
         {
@@ -96,12 +76,6 @@ const Header = () => {
         pseudoElement: '::view-transition-new(root)',
       },
     );
-
-    // set background color after animation
-    // todo: remove this after adding lenis scroll
-    // setTimeout(() => {
-    //   document.body.style.backgroundColor = 'var(--light)';
-    // }, 600);
   };
 
   const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: HeaderItem) => {
@@ -143,7 +117,7 @@ const Header = () => {
         {/* Right side */}
         <div className="gap-8 hidden lg:flex">
           {headerItems.map((item) => (
-            <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)} className="hover:text-blue-700">
+            <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
               <div className="flex items-center gap-4 lg:gap-2">
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
