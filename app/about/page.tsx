@@ -10,7 +10,7 @@ const movieLinkMap: Record<string, string> = {
 };
 
 const musicLinkMap: Record<string, string> = {
-  soundcloud: 'https://soundcloud.com/salmansantino',
+  soundcloud: 'https://soundcloud.com/salmansantino/tracks',
 };
 
 const productHuntLinkMap: Record<string, string> = {
