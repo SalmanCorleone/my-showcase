@@ -4,7 +4,7 @@ import Image from 'next/image';
 const socials = [
   {
     title: 'LinkedIn',
-    icon: '/icons/linkedIn.png',
+    icon: '/icons/linkedin.png',
     href: 'https://www.linkedin.com/in/samil-salman21',
   },
   {
