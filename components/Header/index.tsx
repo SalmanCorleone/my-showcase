@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
 import styles from './header.module.css';
+import Image from 'next/image';
+import ICONS from '@/public/icons';
 
 const ANIM_DURATION = 700;
 
@@ -106,7 +108,7 @@ const Header = () => {
             });
           }}
         >
-          <h1 className="lg:text-4xl font-bold text-base">Samil Salman</h1>
+          <Image src={ICONS.thumbsUp} width={48} height={48} alt="cheers" />
         </Link>
 
         <button
