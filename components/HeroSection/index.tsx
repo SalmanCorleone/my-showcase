@@ -45,6 +45,12 @@ export default function HeroSection() {
     );
   };
 
+  const openAnimationFile = () => {
+    setTimeout(() => {
+      window.open('https://rive.app/marketplace/18970-35832-laptop-guy/', '_blank');
+    }, 500);
+  };
+
   return (
     <div className="flex flex-col md:flex-row gap-6 min-h-[90vh]">
       {/* Left section */}
@@ -70,8 +76,9 @@ export default function HeroSection() {
           <RiveComponent className="w-full h-full cursor-none" />
         </div>
         <div className="flex md:w-[80vh] lg:w-[70vh] w-[40vh] justify-center gap-6">
-          <BounceButton>Animation file ↗</BounceButton>
-          <BounceButton>Github ↗</BounceButton>
+          <BounceButton onClick={openAnimationFile}>
+            <span className="text-sm">Animation file ↗</span>
+          </BounceButton>
         </div>
       </div>
     </div>

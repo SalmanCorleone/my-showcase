@@ -8,12 +8,13 @@ import JobHistoryMobileView from './_components/JobHistoryMobileView';
 import { techs, thingsIMake, tools } from './const';
 import CircleIcon from '@/components/CircleIcon';
 import KudosSection from './_components/KudosSection';
+import Heading from './_components/Heading';
 
 const Experience = () => {
   return (
     <div className="py-4 lg:py-8">
       <section className="px-4 lg:px-12">
-        <h2 className="text-6xl py-20 text-center">In a nutshell</h2>
+        <Heading title="In a nutshell" />
         <div className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 gap-4 lg:gap-6">
           {/* 1. Years of experience */}
           <div className="col-span-1 row-span-1 gridBox">
@@ -31,22 +32,6 @@ const Experience = () => {
               ))}
             </div>
           </div>
-
-          {/* 3. Industries */}
-          {/* <div className="col-span-1 row-span-2 gridBox">
-            <CircleIcon icon={<RiMacLine />} bg={theme.palette.lime} />
-            <p className="text-xl">Industries I&apos;ve worked in</p>
-            <div className="flex flex-wrap justify-center gap-4 mx-4 lg:mx-6">
-              {industries.map((industry) => (
-                <IconWithText
-                  key={industry.name}
-                  icon={industry.icon}
-                  text={industry.name}
-                  iconColor={theme.palette.lime}
-                />
-              ))}
-            </div>
-          </div> */}
 
           {/* 2. Things I make */}
           <div className="col-span-1 row-span-1 gridBox">
@@ -90,30 +75,13 @@ const Experience = () => {
       </section>
 
       <section className="px-4 lg:px-12 pt-4 lg:pt-6">
-        <h2 className="text-6xl py-20 text-center">Job Experience</h2>
+        <Heading title="Job Experience" />
         <JobHistoryDesktopView />
         <JobHistoryMobileView />
       </section>
 
-      {/* <section className="px-4 lg:px-12 pt-4 lg:pt-6">
-          <h2 className="text-6xl py-20 text-center">Let&apos;s have a chat!</h2>
-          <div className="flex flex-col lg:flex-row justify-center gap-4 lg:gap-6 py-4">
-            <BounceButton bg={theme.palette.lime}>Ping me</BounceButton>
-            <BounceButton>Book a call</BounceButton>
-            <BounceButton
-              bg={theme.palette.lime}
-              onClick={() => window.open('/files/samil_salman_resume.pdf', '_blank')}
-            >
-              <div className="flex items-center justify-center gap-2">
-                <RiDownloadLine />
-                <p>Download resume as .pdf</p>
-              </div>
-            </BounceButton>
-          </div>
-        </section> */}
-
       <section className="px-4 lg:px-12 pt-4 lg:pt-6">
-        <h2 className="text-6xl py-20 text-center">Found on Slack channels</h2>
+        <Heading title="Found on Slack channels" />
         <KudosSection />
       </section>
     </div>
