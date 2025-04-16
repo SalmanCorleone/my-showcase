@@ -120,7 +120,7 @@ const Header = () => {
         <div className="gap-8 hidden lg:flex">
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
-              <div className="flex items-center gap-4 lg:gap-2">
+              <div className="flex items-center gap-4 lg:gap-2 px-2 py-1">
                 <span>{item.icon}</span>
                 <span>{item.name}</span>
               </div>
