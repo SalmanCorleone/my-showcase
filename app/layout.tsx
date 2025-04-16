@@ -13,7 +13,7 @@ const sourceCodePro = Source_Code_Pro({
 
 export const metadata: Metadata = {
   title: 'Samil Salman',
-  description: 'Software engineer | Creative Front-end developer',
+  description: 'Software engineer | Creative front-end developer',
 };
 
 export default function RootLayout({
@@ -24,14 +24,17 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en">
-        <Curtain />
         <ReactLenis root>
           <body className={`${sourceCodePro.className} antialiased relative`}>
-            <Header />
-            <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
-              {children}
-            </div>
-            <Footer />
+            <Curtain>
+              <>
+                <Header />
+                <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
+                  {children}
+                </div>
+                <Footer />
+              </>
+            </Curtain>
           </body>
         </ReactLenis>
       </html>
