@@ -25,11 +25,11 @@ body {
   z-index: auto !important;
 }
 
-::view-transition-image-pair(root) {
+/* ::view-transition-image-pair(root) {
   isolation: isolate;
   will-change: transform, scale, opacity;
   z-index: 1;
-}
+} */
 
 ::view-transition-new(root) {
   z-index: 1000;

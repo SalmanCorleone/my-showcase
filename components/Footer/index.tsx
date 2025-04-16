@@ -18,7 +18,7 @@ const socials = [
     href: 'https://leetcode.com/u/samilsalman12/',
   },
   {
-    title: 'gmail',
+    title: 'Gmail',
     icon: '/icons/gmail.png',
     href: 'mailto:samilsalman12@gmail.com',
   },

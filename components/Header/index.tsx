@@ -108,7 +108,10 @@ const Header = () => {
             });
           }}
         >
-          <Image src={ICONS.thumbsUp} width={48} height={48} alt="cheers" />
+          <div className="flex gap-4 items-center">
+            <Image src={ICONS.thumbsUp} width={48} height={48} alt="cheers" />
+            <p className="lg:text-2xl font-semibold">Samil Salman</p>
+          </div>
         </Link>
 
         <button
