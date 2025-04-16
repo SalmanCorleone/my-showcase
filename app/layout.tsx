@@ -5,6 +5,7 @@ import './globals.css';
 import { ViewTransitions } from 'next-view-transitions';
 import Footer from '@/components/Footer';
 import ReactLenis from 'lenis/react';
+import Curtain from '@/components/Curtain';
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
@@ -23,8 +24,9 @@ export default function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en">
+        <Curtain />
         <ReactLenis root>
-          <body className={`${sourceCodePro.className} antialiased`}>
+          <body className={`${sourceCodePro.className} antialiased relative`}>
             <Header />
             <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
               {children}
