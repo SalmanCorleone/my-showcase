@@ -6,6 +6,7 @@ import { ViewTransitions } from 'next-view-transitions';
 import Footer from '@/components/Footer';
 import ReactLenis from 'lenis/react';
 import Curtain from '@/components/Curtain';
+import { PostHogProvider } from '@/components/PostHogProvider';
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ['latin'],
@@ -26,15 +27,17 @@ export default function RootLayout({
       <html lang="en">
         <ReactLenis root>
           <body className={`${sourceCodePro.className} antialiased relative`}>
-            <Curtain>
-              <>
-                <Header />
-                <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
-                  {children}
-                </div>
-                <Footer />
-              </>
-            </Curtain>
+            <PostHogProvider>
+              <Curtain>
+                <>
+                  <Header />
+                  <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
+                    {children}
+                  </div>
+                  <Footer />
+                </>
+              </Curtain>
+            </PostHogProvider>
           </body>
         </ReactLenis>
       </html>
