@@ -1,5 +1,6 @@
 'use client';
 
+import { storage, STORAGE_KEYS } from '@/utils/storage';
 import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 type LabReportContextType = {
@@ -25,6 +26,18 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
   const [data, setData] = useState<Data>();
   const [sectionMap, setSectionMap] = useState<SectionMap>();
 
+  useEffect(() => {
+    if (!sectionMap) return;
+    setActiveSection(Object.keys(sectionMap)[0]);
+  }, [sectionMap]);
+
+  useEffect(() => {
+    const decoded = storage.get(STORAGE_KEYS.LAB_REPORT_DECODED) as DecodedData | null;
+    if (!decoded) return;
+    setData(decoded.data);
+    setSectionMap(decoded.report_sections);
+  }, []);
+
   const updateSection = (section: string) => {
     setActiveSection(section);
   };
@@ -40,17 +53,13 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
         .join('');
 
       const decoded = JSON.parse(decodedJSON) as DecodedData;
+      storage.set(STORAGE_KEYS.LAB_REPORT_DECODED, decoded);
       setData(decoded.data);
       setSectionMap(decoded.report_sections);
     } catch {
       alert('Ask Samil for the correct value');
     }
   };
-
-  useEffect(() => {
-    if (!sectionMap) return;
-    setActiveSection(Object.keys(sectionMap)[0]);
-  }, [sectionMap]);
 
   return (
     <LabReportContext.Provider value={{ activeSection, updateSection, decodeData, data, sectionMap }}>
