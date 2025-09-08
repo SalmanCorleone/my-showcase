@@ -1,14 +1,15 @@
 'use client';
+import ICONS from '@/public/icons';
 import { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme, { transparencyHexMap } from '@/utils/theme';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTransitionRouter } from 'next-view-transitions';
-import Link from 'next/link';
-import { useState } from 'react';
-import { RiBearSmileLine, RiBriefcase4Line, RiGift2Line } from 'react-icons/ri';
-import styles from './header.module.css';
 import Image from 'next/image';
-import ICONS from '@/public/icons';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
+import styles from './header.module.css';
 
 const ANIM_DURATION = 700;
 
@@ -30,21 +31,20 @@ const headerItems: HeaderItem[] = [
     href: '/about',
     icon: <RiBearSmileLine />,
   },
-  {
-    name: 'Goodies',
-    href: '/goodies',
-    icon: <RiGift2Line />,
-  },
+  // {
+  //   name: 'Goodies',
+  //   href: '/goodies',
+  //   icon: <RiGift2Line />,
+  // },
 ] as const;
 
 const Header = () => {
   const [isMenuActive, setMenuActive] = useState(false);
   const router = useTransitionRouter();
+  const pathName = usePathname();
   const { scrollY } = useScroll();
-
-  const headerHeight = useTransform(scrollY, [0, 200], [100, 60]);
-  // const fontSize = useTransform(scrollY, [0, 200], [32, 20]);
-  // const padding = useTransform(scrollY, [0, 200], [24, 12]);
+  const headerHeight = useTransform(scrollY, [0, 200], [80, 60]);
+  const logoSize = useTransform(scrollY, [0, 200], [48, 32]);
 
   const toggleBurgerMenu = () => {
     setMenuActive((val) => !val);
@@ -93,6 +93,7 @@ const Header = () => {
   const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: HeaderItem) => {
     e.preventDefault();
     setMenuActive(false);
+    if (pathName === item.href) return;
     if (item.openInNewTab) {
       window.open(item.href, '_blank');
       return;
@@ -119,7 +120,9 @@ const Header = () => {
           }}
         >
           <div className="flex gap-4 items-center">
-            <Image src={ICONS.thumbsUp} width={48} height={48} alt="cheers" />
+            <motion.div style={{ width: logoSize, height: logoSize, position: 'relative' }}>
+              <Image src={ICONS.thumbsUp} alt="cheers" width={48} height={48} />
+            </motion.div>
             <p className="lg:text-2xl font-semibold">Samil Salman</p>
           </div>
         </Link>
@@ -134,8 +137,8 @@ const Header = () => {
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
               <div className="flex items-center gap-4 lg:gap-2 px-2 py-1">
-                <span>{item.icon}</span>
-                <span>{item.name}</span>
+                <span style={{ color: pathName === item.href ? theme.palette.lime : undefined }}>{item.icon}</span>
+                <span style={{ color: pathName === item.href ? theme.palette.lime : undefined }}>{item.name}</span>
               </div>
             </a>
           ))}

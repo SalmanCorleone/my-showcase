@@ -1,6 +1,6 @@
-import Image from 'next/image';
-import { motion } from 'motion/react';
 import classNames from 'classnames';
+import { motion } from 'motion/react';
+import Image from 'next/image';
 
 type ImageDataType = {
   src: string;

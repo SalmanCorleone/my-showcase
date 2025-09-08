@@ -31,7 +31,7 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
 
   const decodeData = async (input: number) => {
     try {
-      const res = await fetch('encoded.json');
+      const res = await fetch('files/encoded.json');
       const file = await res.json();
 
       const decodedJSON = file.data

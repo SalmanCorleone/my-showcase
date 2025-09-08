@@ -65,8 +65,8 @@ export default function HeroSection() {
           onMouseEnter={() => onMouseInteraction(textRef2, 'enter')}
           onMouseLeave={() => onMouseInteraction(textRef2, 'exit')}
         >
-          <div className="flex top-div">{getChar('Animations')}</div>
-          <div className="flex bottom-div">{getChar(`Animations`)}</div>
+          <div className="flex top-div">{getChar('Interactive_UI')}</div>
+          <div className="flex bottom-div">{getChar(`Interactive_UI`)}</div>
         </div>
       </div>
 
