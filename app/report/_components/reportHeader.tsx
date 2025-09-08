@@ -12,7 +12,7 @@ export const ReportHeader = () => {
               onClick={() => updateSection(key)}
               key={key}
               className={`px-2 py-1 border border-gray-300 rounded text-sm cursor-pointer capitalize ${
-                key === activeSection ? 'bg-indigo-800 text-white' : 'bg-light text-gray-800'
+                key === activeSection ? 'bg-indigo-800 text-white' : 'bg-white text-gray-800'
               }`}
             >
               {key}

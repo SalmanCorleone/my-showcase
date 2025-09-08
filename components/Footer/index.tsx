@@ -34,7 +34,7 @@ const Footer = () => {
       <div className="flex flex-row justify-center gap-10 flex-wrap">
         {socials.map((item) => (
           <a key={item.title} href={item.href} target="_blank" rel="noreferrer">
-            <div key={item.title}>
+            <div key={item.title} className="shadow p-2 rounded-3xl bg-[var(--light)]">
               <Image src={item.icon} width={24} height={24} alt={item.title} className="rounded" />
             </div>
           </a>

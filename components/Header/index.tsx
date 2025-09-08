@@ -1,7 +1,7 @@
 'use client';
 import ICONS from '@/public/icons';
 import { EASE_SMOOTH } from '@/utils/animationVariants';
-import theme, { transparencyHexMap } from '@/utils/theme';
+import theme from '@/utils/theme';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTransitionRouter } from 'next-view-transitions';
 import Image from 'next/image';
@@ -106,8 +106,8 @@ const Header = () => {
   return (
     <div>
       <motion.div
-        className={`flex items-center justify-between px-4 lg:px-16 fixed top-0 left-0 right-0 backdrop-blur-md z-50 border-b border-[var(--light)]`}
-        style={{ background: `${theme.palette.light}${transparencyHexMap[60]}`, height: headerHeight }}
+        className={`flex items-center justify-between px-4 lg:px-16 fixed top-0 left-0 right-0 z-50 border-b-2 border-gray-100`}
+        style={{ background: `${theme.palette.light}`, height: headerHeight }}
       >
         {/* Left side */}
         <Link
