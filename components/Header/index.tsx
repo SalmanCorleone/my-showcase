@@ -1,11 +1,11 @@
 'use client';
 import { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme, { transparencyHexMap } from '@/utils/theme';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTransitionRouter } from 'next-view-transitions';
 import Link from 'next/link';
 import { useState } from 'react';
-import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
+import { RiBearSmileLine, RiBriefcase4Line, RiGift2Line } from 'react-icons/ri';
 import styles from './header.module.css';
 import Image from 'next/image';
 import ICONS from '@/public/icons';
@@ -30,11 +30,21 @@ const headerItems: HeaderItem[] = [
     href: '/about',
     icon: <RiBearSmileLine />,
   },
+  {
+    name: 'Goodies',
+    href: '/goodies',
+    icon: <RiGift2Line />,
+  },
 ] as const;
 
 const Header = () => {
   const [isMenuActive, setMenuActive] = useState(false);
   const router = useTransitionRouter();
+  const { scrollY } = useScroll();
+
+  const headerHeight = useTransform(scrollY, [0, 200], [100, 60]);
+  // const fontSize = useTransform(scrollY, [0, 200], [32, 20]);
+  // const padding = useTransform(scrollY, [0, 200], [24, 12]);
 
   const toggleBurgerMenu = () => {
     setMenuActive((val) => !val);
@@ -94,9 +104,9 @@ const Header = () => {
 
   return (
     <div>
-      <div
-        className={`flex items-center justify-between h-20 px-4 lg:px-16 fixed top-0 left-0 right-0 backdrop-blur-md z-50 border-b border-[var(--light)]`}
-        style={{ background: `${theme.palette.light}${transparencyHexMap[60]}` }}
+      <motion.div
+        className={`flex items-center justify-between px-4 lg:px-16 fixed top-0 left-0 right-0 backdrop-blur-md z-50 border-b border-[var(--light)]`}
+        style={{ background: `${theme.palette.light}${transparencyHexMap[60]}`, height: headerHeight }}
       >
         {/* Left side */}
         <Link
@@ -120,7 +130,7 @@ const Header = () => {
         />
 
         {/* Right side */}
-        <div className="gap-8 hidden lg:flex">
+        <div className="gap-4 hidden lg:flex">
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
               <div className="flex items-center gap-4 lg:gap-2 px-2 py-1">
@@ -130,7 +140,7 @@ const Header = () => {
             </a>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* Mobile Nav */}
       <motion.div

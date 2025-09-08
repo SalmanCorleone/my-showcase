@@ -11,7 +11,7 @@ export const CardSummary = ({ itemName }: CardSummaryProps) => {
   const summary = getItemData(data, itemName);
 
   return (
-    <div className="border border-gray-600 p-4 rounded-xl shadow-md fade-in text-gray-300 bg-gray-900">
+    <div className="border border-gray-100 p-4 rounded-xl shadow-md fade-in text-gray-700 bg-white">
       <h2 className="font-bold text-3xl">{itemName}</h2>
       <p className="text-gray-500 text-xs">
         ref: {summary[0]?.ref_range || undefined} {summary[0]?.unit || 'unit'}
