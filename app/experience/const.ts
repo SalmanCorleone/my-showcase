@@ -2,6 +2,23 @@ import { industriesIcons, techStackIcons } from '@/utils/icons';
 
 export const experienceData: ExperienceItemType[] = [
   {
+    title: 'Stealth Startup',
+    location: 'USA (remote)',
+    duration: 'July 2025 - Present',
+    position: 'Software Engineer',
+    description: ['🍜 We are cooking something up, will go live soon!'],
+    techStack: [
+      {
+        name: 'Next.js',
+        icon: techStackIcons.nextjsMini,
+      },
+      {
+        name: 'Typescript',
+        icon: techStackIcons.typescriptMini,
+      },
+    ],
+  },
+  {
     title: 'Gerald (YC W-21)',
     url: 'https://joingerald.com',
     location: 'NY, USA (remote)',

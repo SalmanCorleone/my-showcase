@@ -34,8 +34,8 @@ const JobHistoryDesktopView = () => {
           <motion.button
             key={item.title}
             whileHover={{ opacity: 1 }}
-            animate={{ opacity: selectedIdx === idx ? 1 : 0.3 }}
-            className="flex flex-col justify-center px-4 cursor-pointer h-24 text-right"
+            animate={{ opacity: selectedIdx === idx ? 1 : 0.5 }}
+            className="flex flex-col justify-center px-4 cursor-pointer h-24 text-right text-gray-900"
             onClick={() => setSelectedIdx(idx)}
           >
             <h2 className="text-xl">{item.title}</h2>

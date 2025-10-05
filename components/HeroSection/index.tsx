@@ -64,7 +64,7 @@ export default function HeroSection() {
       </div>
 
       {/* Right section */}
-      <div className="flex-1 flex flex-col justify-center lg:items-end px-4 lg:px-6 items-center gap-4">
+      <div className="flex-1 flex flex-col justify-center lg:items-start px-4 lg:px-6 items-center gap-4">
         <div className="md:w-[80vh] md:h-[80vh] lg:w-[70vh] lg:h-[70vh] w-[40vh] h-[40vh]">
           <RiveComponent className="w-full h-full cursor-none" />
         </div>

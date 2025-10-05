@@ -40,6 +40,7 @@ const About = () => {
           <CircleIcon bg={theme.palette.lightGrey} icon={<span>📚</span>} />
           <p>I had my Bachelor degree in Computer Science from Bangladesh University of Engineering and Technology</p>
         </div>
+
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <CircleIcon bg={theme.palette.lightGrey} icon={<span>😇</span>} />
           I&apos;m Samil Salman (pronounced sʌmɪl)
@@ -55,6 +56,7 @@ const About = () => {
             <LinkButton href={productHuntLinkMap[key]} title={key} key={key} />
           ))}
         </div>
+
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <CircleIcon bg={theme.palette.lightYellow} icon={<span>🎸</span>} />
           <p>I try and play some music sometimes</p>
@@ -82,6 +84,7 @@ const About = () => {
           <CircleIcon bg={theme.palette.lightYellow} icon={<span>🎮</span>} />
           <p>Big into gaming, I play FPS mostly. Elden ring has been my favorite game so far</p>
         </div>
+
         <div className="col-span-1 row-span-1 gridBoxAboutPage">
           <div className="w-12 h-12 overflow-hidden rounded-full">
             <Image
