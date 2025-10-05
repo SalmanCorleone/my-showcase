@@ -11,7 +11,6 @@ const BounceButton = ({ bg, children, ...props }: IBounceButtonProps) => {
 
   const onButtonClick = useCallback(
     (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-      props.onClick?.(e);
       animate(
         buttonRef.current,
         {
@@ -23,6 +22,7 @@ const BounceButton = ({ bg, children, ...props }: IBounceButtonProps) => {
           stiffness: 200,
         },
       );
+      setTimeout(() => props.onClick?.(e), 300);
     },
     [animate, buttonRef, props],
   );

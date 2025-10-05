@@ -1,4 +1,3 @@
-import theme from '@/utils/theme';
 import Image from 'next/image';
 
 const socials = [
@@ -26,22 +25,19 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer
-      className="flex flex-col items-center justify-center w-full py-6 gap-4"
-      style={{ backgroundColor: theme.palette.lightGrey }}
-    >
-      <p className="text-sm">Find me on</p>
-      <div className="flex flex-row justify-center gap-10 flex-wrap">
-        {socials.map((item) => (
-          <a key={item.title} href={item.href} target="_blank" rel="noreferrer">
-            <div key={item.title} className="shadow p-2 rounded-3xl bg-[var(--light)]">
-              <Image src={item.icon} width={24} height={24} alt={item.title} className="rounded" />
-            </div>
-          </a>
-        ))}
+    <footer className="flex place-content-center">
+      <div className="flex flex-col items-center justify-center py-6 px-10 gap-4 bg-gray-500 w-full">
+        <p className="text-sm font-medium text-light">Find me on</p>
+        <div className="flex flex-row justify-center gap-10 flex-wrap">
+          {socials.map((item) => (
+            <a key={item.title} href={item.href} target="_blank" rel="noreferrer">
+              <div key={item.title} className="shadow p-2 rounded-3xl bg-[var(--light)]">
+                <Image src={item.icon} width={24} height={24} alt={item.title} className="rounded" />
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
-
-      <div className="">{/* <p className="text-sm">© Samil Salman, Made with ♥️ in 2025</p> */}</div>
     </footer>
   );
 };

@@ -1,6 +1,6 @@
 'use client';
 import ICONS from '@/public/icons';
-import { EASE_SMOOTH } from '@/utils/animationVariants';
+import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme from '@/utils/theme';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTransitionRouter } from 'next-view-transitions';
@@ -10,8 +10,7 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
 import styles from './header.module.css';
-
-const ANIM_DURATION = 700;
+import { cn } from '@/utils/cn';
 
 type HeaderItem = {
   name: string;
@@ -50,46 +49,6 @@ const Header = () => {
     setMenuActive((val) => !val);
   };
 
-  const slideAnim = () => {
-    document.documentElement.animate(
-      [
-        {
-          transform: 'translateY(0px)',
-          scale: 1,
-          opacity: 1,
-        },
-        {
-          transform: 'translateY(-100px)',
-          opacity: 0.5,
-          scale: 0.7,
-        },
-      ],
-      {
-        duration: ANIM_DURATION,
-        easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
-        fill: 'forwards',
-        pseudoElement: '::view-transition-old(root)',
-      },
-    );
-
-    document.documentElement.animate(
-      [
-        {
-          transform: 'translateY(100vh)',
-        },
-        {
-          transform: 'translateY(0vh)',
-        },
-      ],
-      {
-        duration: ANIM_DURATION,
-        easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
-        fill: 'forwards',
-        pseudoElement: '::view-transition-new(root)',
-      },
-    );
-  };
-
   const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, item: HeaderItem) => {
     e.preventDefault();
     setMenuActive(false);
@@ -99,7 +58,7 @@ const Header = () => {
       return;
     }
     router.push(item.href, {
-      onTransitionReady: slideAnim,
+      onTransitionReady: animationVariants.documentSlideAnim,
     });
   };
 
@@ -115,7 +74,7 @@ const Header = () => {
           onClick={(e) => {
             e.preventDefault();
             router.push('/', {
-              onTransitionReady: slideAnim,
+              onTransitionReady: animationVariants.documentSlideAnim,
             });
           }}
         >
@@ -129,7 +88,8 @@ const Header = () => {
 
         <button
           onClick={toggleBurgerMenu}
-          className={`${styles.burgerMenuButton} ${!!isMenuActive && styles.active} flex lg:hidden`}
+          // className={`${styles.burgerMenuButton} ${!!isMenuActive && styles.active} flex lg:hidden`}
+          className={cn('flex lg:hidden', styles.burgerMenuButton, !!isMenuActive && styles.active)}
         />
 
         {/* Right side */}
@@ -137,8 +97,8 @@ const Header = () => {
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
               <div className="flex items-center gap-4 lg:gap-2 px-2 py-1">
-                <span style={{ color: pathName === item.href ? theme.palette.lime : undefined }}>{item.icon}</span>
-                <span style={{ color: pathName === item.href ? theme.palette.lime : undefined }}>{item.name}</span>
+                <span className={cn(pathName === item.href && 'text-lime')}>{item.icon}</span>
+                <span className={cn(pathName === item.href && 'text-lime')}>{item.name}</span>
               </div>
             </a>
           ))}
@@ -178,8 +138,8 @@ const Header = () => {
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
               <div className="flex items-center gap-4 lg:gap-2">
-                <span className="text-xl">{item.icon}</span>
-                <span className="text-xl">{item.name}</span>
+                <span className={cn('text-xl', pathName === item.href && 'text-lime')}>{item.icon}</span>
+                <span className={cn('text-xl', pathName === item.href && 'text-lime')}>{item.name}</span>
               </div>
             </a>
           ))}

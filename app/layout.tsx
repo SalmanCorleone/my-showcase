@@ -26,14 +26,15 @@ export default function RootLayout({
     <ViewTransitions>
       <html lang="en">
         <ReactLenis root>
-          <body className={`${sourceCodePro.className} antialiased relative`}>
+          <body
+            className={`${sourceCodePro.className} antialiased relative`}
+            style={{ backgroundColor: 'var(--light)' }}
+          >
             <PostHogProvider>
               <Curtain>
                 <>
                   <Header />
-                  <div className="pt-20" style={{ backgroundColor: 'var(--light)' }}>
-                    {children}
-                  </div>
+                  <div className="pt-20">{children}</div>
                   <Footer />
                 </>
               </Curtain>

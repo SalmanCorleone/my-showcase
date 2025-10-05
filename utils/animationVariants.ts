@@ -4,6 +4,8 @@ import { Variants } from 'motion/react';
 
 export const EASE_SMOOTH = cubicBezier(0.76, 0, 0.24, 1);
 
+const ANIM_DURATION = 700;
+
 const textVariants: Variants = {
   initial: {
     y: 0,
@@ -64,6 +66,46 @@ const fadeInDown: Variants = {
   },
 };
 
-const animationVariants = { textVariants, pulse, fadeInDown };
+const documentSlideAnim = () => {
+  document.documentElement.animate(
+    [
+      {
+        transform: 'translateY(0px)',
+        scale: 1,
+        opacity: 1,
+      },
+      {
+        transform: 'translateY(-100px)',
+        opacity: 0.5,
+        scale: 0.7,
+      },
+    ],
+    {
+      duration: ANIM_DURATION,
+      easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      fill: 'forwards',
+      pseudoElement: '::view-transition-old(root)',
+    },
+  );
+
+  document.documentElement.animate(
+    [
+      {
+        transform: 'translateY(100vh)',
+      },
+      {
+        transform: 'translateY(0vh)',
+      },
+    ],
+    {
+      duration: ANIM_DURATION,
+      easing: 'cubic-bezier(0.76, 0, 0.24, 1)',
+      fill: 'forwards',
+      pseudoElement: '::view-transition-new(root)',
+    },
+  );
+};
+
+const animationVariants = { textVariants, pulse, fadeInDown, documentSlideAnim };
 
 export default animationVariants;

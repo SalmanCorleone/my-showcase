@@ -4,6 +4,8 @@ import { AnimationScope, motion, useAnimate } from 'framer-motion';
 import { stagger } from 'motion';
 import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme from '@/utils/theme';
+import BounceButton from '../BounceButton';
+import { useTransitionRouter } from 'next-view-transitions';
 
 export default function HeroSection() {
   const { RiveComponent } = useRive({
@@ -14,6 +16,7 @@ export default function HeroSection() {
 
   const [textRef1, animate1] = useAnimate();
   const [textRef2, animate2] = useAnimate();
+  const router = useTransitionRouter();
 
   const getChar = (str: string) => {
     return str.split('').map((char, index) => (
@@ -45,7 +48,7 @@ export default function HeroSection() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row gap-6 min-h-[90vh]">
+    <div className="flex flex-col md:flex-row gap-6 md:min-h-[92vh] min-h-[90vh]">
       {/* Left section */}
       <div className="flex flex-col flex-1 py-6 px-6 justify-center items-center lg:items-end gap-4 lg:gap-6 text-center">
         <p className="text-xl">Hi there! 👋</p>
@@ -60,6 +63,19 @@ export default function HeroSection() {
         >
           <div className="flex top-div">{getChar('Interactive_UI')}</div>
           <div className="flex bottom-div">{getChar(`Interactive_UI`)}</div>
+        </div>
+
+        <div>
+          <BounceButton
+            bg={theme.palette.lime}
+            onClick={() =>
+              router.push('/experience', {
+                onTransitionReady: animationVariants.documentSlideAnim,
+              })
+            }
+          >
+            See my work
+          </BounceButton>
         </div>
       </div>
 
