@@ -9,12 +9,14 @@ type LabReportContextType = {
   decodeData: (input: number) => void;
   data?: Data;
   sectionMap?: SectionMap;
+  refreshData: () => void;
 };
 
 const LabReportContext = createContext<LabReportContextType>({
   activeSection: null as string | null,
   updateSection: () => {},
   decodeData: () => {},
+  refreshData: () => {},
 });
 
 interface LabReportContextProps {
@@ -61,8 +63,15 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
     }
   };
 
+  const refreshData = () => {
+    storage.clear();
+    setData(undefined);
+    setSectionMap(undefined);
+    setActiveSection(null);
+  };
+
   return (
-    <LabReportContext.Provider value={{ activeSection, updateSection, decodeData, data, sectionMap }}>
+    <LabReportContext.Provider value={{ activeSection, updateSection, decodeData, refreshData, data, sectionMap }}>
       {children}
     </LabReportContext.Provider>
   );
