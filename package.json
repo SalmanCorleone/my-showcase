@@ -14,7 +14,7 @@
     "classnames": "^2.5.1",
     "lenis": "^1.2.3",
     "motion": "^12.5.0",
-    "next": "15.2.2",
+    "next": "15.2.8",
     "next-view-transitions": "^0.3.4",
     "posthog-js": "^1.239.0",
     "posthog-node": "^4.16.0",
