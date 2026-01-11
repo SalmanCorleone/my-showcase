@@ -25,8 +25,7 @@ export const CardSummary = ({ itemName }: CardSummaryProps) => {
           </div>
         ))}
       </div>
-
-      <CustomLineChart data={mapItemReportToChartData(summary)} />
+      {typeof summary[0]?.value === 'number' && <CustomLineChart data={mapItemReportToChartData(summary)} />}
     </div>
   );
 };
