@@ -1,7 +1,7 @@
 'use client';
 
 import { storage, STORAGE_KEYS } from '@/utils/storage';
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 type LabReportContextType = {
   activeSection: string | null;
@@ -10,6 +10,8 @@ type LabReportContextType = {
   data?: Data;
   sectionMap?: SectionMap;
   refreshData: () => void;
+  viewMode: 'card' | 'table';
+  setViewMode: (mode: 'card' | 'table') => void;
 };
 
 const LabReportContext = createContext<LabReportContextType>({
@@ -17,6 +19,8 @@ const LabReportContext = createContext<LabReportContextType>({
   updateSection: () => {},
   decodeData: () => {},
   refreshData: () => {},
+  viewMode: 'table',
+  setViewMode: () => {},
 });
 
 interface LabReportContextProps {
@@ -27,6 +31,7 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [data, setData] = useState<Data>();
   const [sectionMap, setSectionMap] = useState<SectionMap>();
+  const [viewMode, setViewMode] = useState<'card' | 'table'>('table');
 
   useEffect(() => {
     if (!sectionMap) return;
@@ -42,6 +47,10 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
 
   const updateSection = (section: string) => {
     setActiveSection(section);
+  };
+
+  const handleSetViewMode = (mode: 'card' | 'table') => {
+    setViewMode(mode);
   };
 
   const decodeData = async (input: number) => {
@@ -71,7 +80,18 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
   };
 
   return (
-    <LabReportContext.Provider value={{ activeSection, updateSection, decodeData, refreshData, data, sectionMap }}>
+    <LabReportContext.Provider
+      value={{
+        activeSection,
+        updateSection,
+        decodeData,
+        refreshData,
+        data,
+        sectionMap,
+        viewMode,
+        setViewMode: handleSetViewMode,
+      }}
+    >
       {children}
     </LabReportContext.Provider>
   );
