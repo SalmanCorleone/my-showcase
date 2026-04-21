@@ -1,6 +1,7 @@
 'use client';
 import ICONS from '@/public/icons';
 import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
+import { cn } from '@/utils/cn';
 import theme from '@/utils/theme';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTransitionRouter } from 'next-view-transitions';
@@ -10,7 +11,6 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
 import styles from './header.module.css';
-import { cn } from '@/utils/cn';
 
 type HeaderItem = {
   name: string;
@@ -88,7 +88,6 @@ const Header = () => {
 
         <button
           onClick={toggleBurgerMenu}
-          // className={`${styles.burgerMenuButton} ${!!isMenuActive && styles.active} flex lg:hidden`}
           className={cn('flex lg:hidden', styles.burgerMenuButton, !!isMenuActive && styles.active)}
         />
 
@@ -96,9 +95,14 @@ const Header = () => {
         <div className="gap-4 hidden lg:flex">
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
-              <div className="flex items-center gap-4 lg:gap-2 px-2 py-1">
-                <span className={cn(pathName === item.href && 'text-lime')}>{item.icon}</span>
-                <span className={cn(pathName === item.href && 'text-lime')}>{item.name}</span>
+              <div
+                className={cn(
+                  { 'bg-dark text-white font-semibold': pathName === item.href },
+                  'flex items-center gap-4 lg:gap-2 px-2 py-1 rounded-md hover:font-semibold transition-colors duration-200',
+                )}
+              >
+                <span>{item.icon}</span>
+                <span>{item.name}</span>
               </div>
             </a>
           ))}
@@ -137,9 +141,14 @@ const Header = () => {
         >
           {headerItems.map((item) => (
             <a key={item.name} href={item.href} onClick={(e) => onNavClick(e, item)}>
-              <div className="flex items-center gap-4 lg:gap-2">
-                <span className={cn('text-xl', pathName === item.href && 'text-lime')}>{item.icon}</span>
-                <span className={cn('text-xl', pathName === item.href && 'text-lime')}>{item.name}</span>
+              <div
+                className={cn(
+                  { 'bg-dark text-white font-semibold': pathName === item.href },
+                  'text-xl flex items-center gap-4 lg:gap-2 px-2 py-1 rounded-md hover:font-semibold transition-colors duration-200',
+                )}
+              >
+                <span>{item.icon}</span>
+                <span>{item.name}</span>
               </div>
             </a>
           ))}

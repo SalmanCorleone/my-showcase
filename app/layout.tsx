@@ -1,9 +1,9 @@
-import Header from '@/components/Header';
+import Footer from '@/components/footer';
+import Header from '@/components/header';
 import type { Metadata } from 'next';
+import { ViewTransitions } from 'next-view-transitions';
 import { Source_Code_Pro } from 'next/font/google';
 import './globals.css';
-import { ViewTransitions } from 'next-view-transitions';
-import Footer from '@/components/Footer';
 // import ReactLenis from 'lenis/react';
 import Curtain from '@/components/Curtain';
 import { PostHogProvider } from '@/components/PostHogProvider';

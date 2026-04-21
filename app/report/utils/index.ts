@@ -17,14 +17,19 @@ export const getItemData = (data: Data | undefined, key: string) => {
   return itemData;
 };
 
-export const mapItemReportToChartData = (itemReports: ItemReport[]) => {
+export interface ChartDataPoint {
+  key: string;
+  value: number;
+}
+
+export const mapItemReportToChartData = (itemReports: ItemReport[]): ChartDataPoint[] => {
   return itemReports.map((report) => ({
     key: report.month || '',
     value: report.value,
   }));
 };
 
-export const getMedian = (data: { key: string; value: number }[]): number => {
+export const getMedian = (data: ChartDataPoint[]): number => {
   if (!data.length) return 0;
   const values = data.map((d) => d.value).sort((a, b) => a - b);
   const mid = Math.floor(values.length / 2);

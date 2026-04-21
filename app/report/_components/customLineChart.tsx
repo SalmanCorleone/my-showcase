@@ -1,12 +1,12 @@
 import { useMemo } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts';
-import { getMedian } from '../utils';
+import { CartesianGrid, Line, LineChart, ReferenceArea, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { ChartDataPoint, getMedian } from '../utils';
 
 const medianPadding = 1;
 
 interface CustomLineChartProps {
   refRange?: [number, number];
-  data?: { key: string; value: number }[];
+  data?: ChartDataPoint[];
 }
 
 export const CustomLineChart = (props: CustomLineChartProps) => {
@@ -20,7 +20,7 @@ export const CustomLineChart = (props: CustomLineChartProps) => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="key" />
         <YAxis domain={[median - medianPadding, median + medianPadding]} tickFormatter={(value) => value.toFixed(2)} />
-        <Tooltip contentStyle={{ backgroundColor: 'var(--color-gray-800)', borderRadius: 4 }} />
+        <Tooltip contentStyle={{ backgroundColor: '#eeeeee', borderRadius: 4, color: 'black' }} />
 
         {/* Shaded range zone */}
         {!!refRange && <ReferenceArea y1={refRange[0]} y2={refRange[1]} strokeOpacity={0.3} fill="lightgreen" />}
