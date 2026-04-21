@@ -56,11 +56,7 @@ const Modal = ({
   return createPortal(
     <dialog
       ref={dialogRef}
-      className={cn(
-        'm-auto bg-transparent backdrop:bg-black/50 backdrop:animate-fade-in p-0',
-        !isOpen && 'hidden',
-        className,
-      )}
+      className={cn('m-auto bg-transparent backdrop:bg-black/50 fade-in p-0', !isOpen && 'hidden', className)}
       onClick={handleOverlayClick}
     >
       <div

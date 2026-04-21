@@ -33,7 +33,6 @@ const BounceButton = ({ bg, children, ...props }: IBounceButtonProps) => {
       <motion.div
         ref={buttonRef}
         className="bg-white border rounded-xl px-4 py-2 relative"
-        // style={{ zIndex: 2 }}
         initial={{ y: 0 }}
         whileHover={{ y: -2 }}
         transition={{ type: 'spring', duration: 0.2 }}

@@ -5,7 +5,7 @@ import { motion } from 'motion/react';
 import animationVariants from '@/utils/animationVariants';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { RiArrowRightUpLine } from 'react-icons/ri';
-import TechBadge from '@/components/TechBadge';
+import TechBadge from '@/components/techBadge';
 
 const JobHistoryMobileView = () => {
   const [selectedIdx, setSelectedIdx] = useState(0);

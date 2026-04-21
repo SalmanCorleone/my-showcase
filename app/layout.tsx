@@ -4,8 +4,7 @@ import type { Metadata } from 'next';
 import { ViewTransitions } from 'next-view-transitions';
 import { Source_Code_Pro } from 'next/font/google';
 import './globals.css';
-// import ReactLenis from 'lenis/react';
-import Curtain from '@/components/Curtain';
+import Curtain from '@/components/curtain';
 import { PostHogProvider } from '@/components/PostHogProvider';
 
 const sourceCodePro = Source_Code_Pro({
@@ -21,7 +20,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <ViewTransitions>
       <html lang="en">
-        {/* <ReactLenis root> */}
         <body className={`${sourceCodePro.className} antialiased relative`} style={{ backgroundColor: 'var(--light)' }}>
           <PostHogProvider>
             <Curtain>
@@ -33,7 +31,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </Curtain>
           </PostHogProvider>
         </body>
-        {/* </ReactLenis> */}
       </html>
     </ViewTransitions>
   );

@@ -4,7 +4,7 @@ import { AnimationScope, motion, useAnimate } from 'framer-motion';
 import { stagger } from 'motion';
 import animationVariants, { EASE_SMOOTH } from '@/utils/animationVariants';
 import theme from '@/utils/theme';
-import BounceButton from '../BounceButton';
+import BounceButton from '../bounceButton';
 import { useTransitionRouter } from 'next-view-transitions';
 
 export default function HeroSection() {

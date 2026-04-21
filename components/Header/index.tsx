@@ -9,7 +9,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { RiBearSmileLine, RiBriefcase4Line } from 'react-icons/ri';
+import { RiBearSmileLine, RiBriefcase4Line, RiLockLine } from 'react-icons/ri';
 import styles from './header.module.css';
 
 type HeaderItem = {
@@ -29,6 +29,11 @@ const headerItems: HeaderItem[] = [
     name: 'About',
     href: '/about',
     icon: <RiBearSmileLine />,
+  },
+  {
+    name: 'Records',
+    href: '/report',
+    icon: <RiLockLine />,
   },
   // {
   //   name: 'Goodies',

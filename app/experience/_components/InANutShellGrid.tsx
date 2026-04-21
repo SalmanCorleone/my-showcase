@@ -1,9 +1,17 @@
 'use client';
 
 import theme from '@/utils/theme';
-import { RiBuilding3Line, RiHammerLine, RiMapPin2Line, RiTimer2Line, RiToolsLine } from 'react-icons/ri';
+import {
+  RiBuilding3Line,
+  RiDownloadLine,
+  RiHammerLine,
+  RiMapPin2Line,
+  RiTimer2Line,
+  RiToolsLine,
+} from 'react-icons/ri';
 
-import CircleIcon from '@/components/CircleIcon';
+import BounceButton from '@/components/bounceButton';
+import CircleIcon from '@/components/circleIcon';
 import { techs, thingsIMake, tools } from './../const';
 import IconWithText from './IconWithText';
 
@@ -12,8 +20,19 @@ export const InANutShellGrid = () => {
     <div className="grid grid-cols-1 lg:grid-cols-3 grid-rows-1 gap-4 lg:gap-6">
       {/* 1. Years of experience */}
       <div className="col-span-1 row-span-1 gridBox">
-        <CircleIcon icon={<RiTimer2Line />} bg={theme.palette.pink} />
+        <CircleIcon icon={<RiTimer2Line />} bg={theme.palette.blue} />
         <p className="text-xl">6 Years of Experience</p>
+
+        <div className="flex flex-col items-center justify-center">
+          <a href="/files/samil_salman_resume.pdf" download="samil_salman_resume.pdf">
+            <BounceButton bg={theme.palette.blue}>
+              <div className="flex items-center justify-center gap-2">
+                <span className="text-xs">Resume</span>
+                <RiDownloadLine size={16} />
+              </div>
+            </BounceButton>
+          </a>
+        </div>
       </div>
 
       {/* 5. Techs */}

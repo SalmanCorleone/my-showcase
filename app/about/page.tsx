@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import theme from '@/utils/theme';
-import CircleIcon from '@/components/CircleIcon';
-import LinkButton from '@/components/LinkButton';
+import CircleIcon from '@/components/circleIcon';
+import LinkButton from '@/components/linkButton';
 
 const movieLinkMap: Record<string, string> = {
   imdb: 'https://www.imdb.com/user/ur53688954',

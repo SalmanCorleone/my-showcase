@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { experienceData } from '../const';
 import { motion, useAnimate } from 'motion/react';
 import theme from '@/utils/theme';
-import TechBadge from '@/components/TechBadge';
+import TechBadge from '@/components/techBadge';
 import animationVariants from '@/utils/animationVariants';
 import { cubicBezier } from 'motion';
 import { RiArrowRightUpLine } from 'react-icons/ri';
