@@ -74,16 +74,6 @@ export const InANutShellGrid = () => {
           ))}
         </div>
       </div>
-
-      {/* 5. Available */}
-      {/* <div className="col-span-1 row-span-1 gridBox">
-            <CircleIcon icon={<RiEmotion2Line />} bg={theme.palette.lightBlue} />
-            <p className="text-xl">Let&apos;s have chat!</p>
-            <div className="flex gap-4">
-              <BounceButton bg={theme.palette.lime}>Ping me</BounceButton>
-              <BounceButton>Book a call</BounceButton>
-            </div>
-          </div> */}
     </div>
   );
 };
