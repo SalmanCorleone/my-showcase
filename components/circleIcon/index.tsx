@@ -14,6 +14,4 @@ const CircleIcon = ({ icon, bg, ...rest }: CircleIconProps) => {
   );
 };
 
-// some stuff needs reworkss
-
 export default CircleIcon;
