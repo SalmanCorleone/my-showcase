@@ -1,0 +1,37 @@
+import Footer from '@/components/footer';
+import Header from '@/components/header';
+import type { Metadata } from 'next';
+import { ViewTransitions } from 'next-view-transitions';
+import { Source_Code_Pro } from 'next/font/google';
+import './globals.css';
+import Curtain from '@/components/curtain';
+import { PostHogProvider } from '@/components/PostHogProvider';
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['latin'],
+});
+
+export const metadata: Metadata = {
+  title: 'Samil Salman',
+  description: 'Software engineer | Creative front-end developer',
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return (
+    <ViewTransitions>
+      <html lang="en">
+        <body className={`${sourceCodePro.className} antialiased relative`} style={{ backgroundColor: 'var(--light)' }}>
+          <PostHogProvider>
+            <Curtain>
+              <>
+                <Header />
+                <div className="pt-20">{children}</div>
+                <Footer />
+              </>
+            </Curtain>
+          </PostHogProvider>
+        </body>
+      </html>
+    </ViewTransitions>
+  );
+}

@@ -1,0 +1,44 @@
+.headerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--dark);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.2px);
+  -webkit-backdrop-filter: blur(5.2px);
+}
+
+.burgerMenuButton {
+  width: 32px;
+  height: 32px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.burgerMenuButton::before {
+  content: '';
+  width: 100%;
+  border-top: 1px solid #000;
+  transform: translateY(-4px);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.burgerMenuButton::after {
+  content: '';
+  width: 100%;
+  border-top: 1px solid #000;
+  transform: translateY(4px);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.active.burgerMenuButton::before {
+  transform: rotate(-45deg);
+}
+
+.active.burgerMenuButton::after {
+  transform: rotate(45deg);
+}
