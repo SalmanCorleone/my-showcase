@@ -1,12 +1,23 @@
+const TTL_MS = 24 * 60 * 60 * 1000;
+
+type TimedValue = { value: unknown; timestamp: number };
+
 const set = (key: string, value: unknown) => {
   if (typeof value === 'undefined') return;
-  localStorage.setItem(key, JSON.stringify(value));
+  const timed: TimedValue = { value, timestamp: Date.now() };
+  localStorage.setItem(key, JSON.stringify(timed));
 };
 
 const get = (key: string) => {
   if (typeof window === 'undefined') return;
   const item = localStorage.getItem(key);
-  return item ? JSON.parse(item) : null;
+  if (!item) return null;
+  const parsed = JSON.parse(item);
+  if (typeof parsed?.timestamp !== 'number' || Date.now() - parsed.timestamp > TTL_MS) {
+    localStorage.removeItem(key);
+    return null;
+  }
+  return parsed.value;
 };
 
 const clear = () => {
