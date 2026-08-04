@@ -29,17 +29,6 @@ export const mapItemReportToChartData = (itemReports: ItemReport[]): ChartDataPo
   }));
 };
 
-export const getMedian = (data: ChartDataPoint[]): number => {
-  if (!data.length) return 0;
-  const values = data.map((d) => d.value).sort((a, b) => a - b);
-  const mid = Math.floor(values.length / 2);
-  if (values.length % 2 === 0) {
-    return (values[mid - 1] + values[mid]) / 2;
-  } else {
-    return values[mid];
-  }
-};
-
 export const parseRefRange = (refRange?: string | null, itemName?: string): [number, number] | undefined => {
   if (!refRange) return undefined;
   const match = refRange.trim().match(/^([\d.]+)\s*-\s*([\d.]+)$/);
