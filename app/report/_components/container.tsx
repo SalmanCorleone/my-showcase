@@ -1,6 +1,7 @@
 'use client';
 
 import { CardSummary } from './cardSummary';
+import { ChartView } from './chartView';
 import { useLabReportContext } from './labReportContext';
 import { PasswordInput } from './passwordInput';
 import { ReportHeader } from './reportHeader';
@@ -20,6 +21,8 @@ export const Container = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
               {!!activeKeys && activeKeys.map((itemName) => <CardSummary key={itemName} itemName={itemName} />)}
             </div>
+          ) : viewMode === 'chart' ? (
+            <ChartView />
           ) : (
             <TableView />
           )}

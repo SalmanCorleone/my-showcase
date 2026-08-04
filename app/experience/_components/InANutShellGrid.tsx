@@ -21,7 +21,7 @@ export const InANutShellGrid = () => {
       {/* 1. Years of experience */}
       <div className="col-span-1 row-span-1 gridBox">
         <CircleIcon icon={<RiTimer2Line />} bg={theme.palette.blue} />
-        <p className="text-xl">6 Years of Experience</p>
+        <p className="text-xl">7 Years of Experience</p>
 
         <div className="flex flex-col items-center justify-center">
           <a href="/files/samil_salman_resume.pdf" download="samil_salman_resume.pdf">

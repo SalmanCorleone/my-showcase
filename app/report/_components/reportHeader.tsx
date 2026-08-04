@@ -1,5 +1,5 @@
 import { ToggleButtonGroup } from '@/components/toggleButtonGroup';
-import { RiLayoutGridLine, RiRefreshLine, RiTableLine } from 'react-icons/ri';
+import { RiLayoutGridLine, RiLineChartLine, RiRefreshLine, RiTableLine } from 'react-icons/ri';
 import { useLabReportContext } from './labReportContext';
 
 export const ReportHeader = () => {
@@ -15,6 +15,11 @@ export const ReportHeader = () => {
       value: 'card',
       icon: <RiLayoutGridLine size={16} />,
       title: 'Card View',
+    },
+    {
+      value: 'chart',
+      icon: <RiLineChartLine size={16} />,
+      title: 'Chart View',
     },
   ];
 
@@ -44,7 +49,7 @@ export const ReportHeader = () => {
         <ToggleButtonGroup
           options={viewOptions}
           activeValue={viewMode}
-          onChange={(val) => setViewMode(val as 'card' | 'table')}
+          onChange={(val) => setViewMode(val as 'card' | 'table' | 'chart')}
         />
       </div>
     </div>

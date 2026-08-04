@@ -10,8 +10,8 @@ type LabReportContextType = {
   data?: Data;
   sectionMap?: SectionMap;
   refreshData: () => void;
-  viewMode: 'card' | 'table';
-  setViewMode: (mode: 'card' | 'table') => void;
+  viewMode: 'card' | 'table' | 'chart';
+  setViewMode: (mode: 'card' | 'table' | 'chart') => void;
 };
 
 const LabReportContext = createContext<LabReportContextType>({
@@ -31,7 +31,7 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
   const [activeSection, setActiveSection] = useState<string | null>(null);
   const [data, setData] = useState<Data>();
   const [sectionMap, setSectionMap] = useState<SectionMap>();
-  const [viewMode, setViewMode] = useState<'card' | 'table'>('table');
+  const [viewMode, setViewMode] = useState<'card' | 'table' | 'chart'>('table');
 
   useEffect(() => {
     if (!sectionMap) return;
@@ -49,7 +49,7 @@ export const LabReportContextProvider = ({ children }: LabReportContextProps) =>
     setActiveSection(section);
   };
 
-  const handleSetViewMode = (mode: 'card' | 'table') => {
+  const handleSetViewMode = (mode: 'card' | 'table' | 'chart') => {
     setViewMode(mode);
   };
 

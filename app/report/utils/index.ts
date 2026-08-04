@@ -39,3 +39,14 @@ export const getMedian = (data: ChartDataPoint[]): number => {
     return values[mid];
   }
 };
+
+export const parseRefRange = (refRange?: string | null, itemName?: string): [number, number] | undefined => {
+  if (!refRange) return undefined;
+  const match = refRange.trim().match(/^([\d.]+)\s*-\s*([\d.]+)$/);
+  if (!match) return undefined;
+  let range: [number, number] = [Number(match[1]), Number(match[2])];
+  if (itemName === 'Creatinine' && range[1] > 100) {
+    range = [+(range[0] / 88.4).toFixed(2), +(range[1] / 88.4).toFixed(2)];
+  }
+  return range;
+};
